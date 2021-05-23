@@ -1,0 +1,13 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="07_EL表达式_常见异常:war exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/07_EL__war_exploded</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="07_EL表达式_常见异常/web/Web" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="07_EL表达式_常见异常" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>

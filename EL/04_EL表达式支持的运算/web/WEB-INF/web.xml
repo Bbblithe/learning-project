@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="https://jakarta.ee/xml/ns/jakartaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_5_0.xsd"
+         version="5.0">
+    <servlet>
+        <servlet-name>OneServlet</servlet-name>
+        <servlet-class>com.blithe.controller.OneServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>TwoServlet</servlet-name>
+        <servlet-class>com.blithe.controller.TwoServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>TwoServlet</servlet-name>
+        <url-pattern>/two</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>OneServlet</servlet-name>
+        <url-pattern>/one</url-pattern>
+    </servlet-mapping>
+</web-app>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/01_传统JSP文件开发步骤/01_传统JSP文件开发步骤.iml" filepath="$PROJECT_DIR$/01_传统JSP文件开发步骤/01_传统JSP文件开发步骤.iml" />
+      <module fileurl="file://$PROJECT_DIR$/02_输出引用对象属性内容/02_输出引用对象属性内容.iml" filepath="$PROJECT_DIR$/02_输出引用对象属性内容/02_输出引用对象属性内容.iml" />
+      <module fileurl="file://$PROJECT_DIR$/03_EL表达式简化版/03_EL表达式简化版.iml" filepath="$PROJECT_DIR$/03_EL表达式简化版/03_EL表达式简化版.iml" />
+      <module fileurl="file://$PROJECT_DIR$/04_EL表达式支持的运算/04_EL表达式支持的运算.iml" filepath="$PROJECT_DIR$/04_EL表达式支持的运算/04_EL表达式支持的运算.iml" />
+      <module fileurl="file://$PROJECT_DIR$/05_EL表达式_内置对象/05_EL表达式_内置对象.iml" filepath="$PROJECT_DIR$/05_EL表达式_内置对象/05_EL表达式_内置对象.iml" />
+      <module fileurl="file://$PROJECT_DIR$/06_在线考试管理系统/06_在线考试管理系统1.iml" filepath="$PROJECT_DIR$/06_在线考试管理系统/06_在线考试管理系统1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/07_EL表达式_常见异常/07_EL表达式_常见异常.iml" filepath="$PROJECT_DIR$/07_EL表达式_常见异常/07_EL表达式_常见异常.iml" />
+      <module fileurl="file://$PROJECT_DIR$/EL.iml" filepath="$PROJECT_DIR$/EL.iml" />
+    </modules>
+  </component>
+</project>
