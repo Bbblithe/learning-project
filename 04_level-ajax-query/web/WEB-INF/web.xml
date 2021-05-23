@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
+         version="4.0">
+    <!--查询所有的省份servlet声明开始-->
+    <servlet>
+        <servlet-name>QueryProvinceServlet</servlet-name>
+        <servlet-class>com.blithexwj.controller.QueryProvinceServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>QueryProvinceServlet</servlet-name>
+        <url-pattern>/queryProvince</url-pattern>
+    </servlet-mapping>
+    <!--查询所有的省份servlet声明完成-->
+
+    <!--查询所有的城市city声明开始-->
+    <servlet>
+        <servlet-name>QueryCityServlet</servlet-name>
+        <servlet-class>com.blithexwj.controller.QueryCityServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>QueryCityServlet</servlet-name>
+        <url-pattern>/queryCity</url-pattern>
+    </servlet-mapping>
+</web-app>
