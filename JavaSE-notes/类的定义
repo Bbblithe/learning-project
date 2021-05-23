@@ -1,0 +1,51 @@
+语法结构：
+[修饰符列表] class 类名{
+	属性;
+	方法;
+	
+}
+学生类，描述所有学生对象的共同特征：
+	学生对象有哪些状态信息：
+		*学号【int】
+		*名字【String】
+		*年龄【int】【年龄是一个属性，年龄是一个数据，是数据就应该有数据类型】
+		*性别【boolean】
+		*住址【String】
+		...
+
+	学生对象有哪些动作信息：	
+		*吃饭
+		*睡觉
+		*学习
+		*玩
+		*唱歌
+		*跳舞
+		...
+	重点：属性通常是采用一个变量的形式来完成定义的。
+		int no;
+		int age;
+		String name;
+		String address;
+		boolean sex；
+
+*java语言中包括两种数据类型：
+	-基本数据类型
+		byte
+		short
+		long
+		int
+		float
+		double
+		boolean
+		char	
+
+	-引用数据类型
+		String.class SUN提供的
+		Student.class SUN提供的
+		System.class 程序员自定义的
+		User.class 程序员自定义的
+		product.class 程序员自定义的
+		Custmoer.class 程序员自定义的
+		....
+
+	-java语言中所有的class都属于引用数据类型

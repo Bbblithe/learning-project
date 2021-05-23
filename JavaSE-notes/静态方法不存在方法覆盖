@@ -1,0 +1,56 @@
+私有方法无法被覆盖
+覆盖的基本条件是必须要有父子的继承关系。
+构造方法不能被继承，所以构造方法也不能被覆盖。
+方法覆盖只是针对“实例方法”，“静态方法覆盖”没有意义。
+总结两句话：
+	私有不能覆盖。
+	静态不谈覆盖。
+
+在方法覆盖中，关于方法的返回值类型。
+	什么条件满足之后，会构成方法覆盖呢？
+		1、发生在具有继承关系的两个类之间
+		2、父类中的方法和子类重写之后的方法：
+			具有相同的方法名、相同的形式参数列表、相同的返回值类型。
+
+	学习了多态机制之后：
+		“相同的返回值类型”可以修改一下吗？
+			如果父类与子类中的方法中返回的是基本数据类型则重写必须需要相同的基础数据类型
+				class Animal{
+					public double sum(int a,int b){
+	        			return a+b;
+	    			}
+	    		}
+	    		
+	    		class Cat extends Animal{
+	    			public int sum(int a,int b){	//这里的返回值类型和父类的Animal的返回值double不同，一定会报错，无论你的基本数据类型是比父类大或者小，都无法编译通过。
+	    			return a+b;
+	    			}
+	    		}
+
+	    	当父类子类使用的是自创类的返回值类型时(引用类型)只能返回小的或者相同的返回值类型。
+	    	对于返回值类型是引用类型来说，重写之后返回值类型可以变得更小(但是意义不大）
+	    		class MyClass1{
+    				public Animal getAnimal(){
+        				return null;
+    				}		
+				}
+
+				//子类
+				class MyClass2 extends MyClass1{
+				    //重写方法
+				    //重写的时候返回值类型由Animal变成了Cat，变小了。(编译通过，java允许)
+				    /*
+				    public Cat getAnimal(){
+				        return null;
+				    }
+
+				     */
+
+				    //重写的时候返回类型由Animal 变成了Object，变大了(编译失败，java中不允许)
+				    /*
+				    public Object getAnimal(){
+				        return null;
+				    }
+
+				     */
+

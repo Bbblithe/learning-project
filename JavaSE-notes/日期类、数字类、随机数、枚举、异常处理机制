@@ -1,0 +1,41 @@
+1、日期类
+	1.1、获取系统当前时间
+		Date d = new Date();
+	1.2、日期格式化：Date--> String
+		yyyy-MM-dd HH:mm:ss SSS
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		String s = sdf.format(new Date());
+	1.3、String--> Date
+		SimpleDateForamt sdf = new SimpleDate("yyyy-MM-dd HH:mm:ss");
+		Date d = sdf.parse("2008-08-08 08:08:08");
+	1.4、后去毫秒数
+		long begin = System.currentTimeMillis();
+
+2、数字类
+	2.1、DecimalFormat数字格式化
+		###,###.## 表示加入千分位，保留两个小数。
+		###,###.0000 表示加入千分位，保留4个小数，不够补0
+	2.2、BigDecimal
+		财务软件中通常使用BigDecimal
+
+3、随机数
+	3.1、怎么产生int类型随机数。
+		Random r = new Random();
+		int i = r.nextInt();
+	3.2、怎么产生某个范围之后的int类型随机数。
+		Random r = new Random();
+		int i = r.nextInt(101); // 产生[0-100]的随机数。
+
+4、枚举
+	4.1、枚举是一种引用数据类型。
+	4.2、枚举编译之后也是class文件。
+	4.3、枚举类型怎么定义？
+		enum 枚举类型名{
+			枚举值1,枚举值2,枚举值3
+		}			
+	4.4、当一方法执行结果超过两种情况的，并且是一枚一枚可以列举出来
+	的时候，建议返回值类型设计为枚举类型。
+
+5、异常处理机制
+	5.1、java中异常的作用是：增强程序的健壮性。
+	5.2、java中异常以类和对象的形式存在。		

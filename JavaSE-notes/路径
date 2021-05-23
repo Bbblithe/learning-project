@@ -1,0 +1,16 @@
+1.路径
+	1.1、获取文件的绝对路径	
+		String path = Thread.currentThread().getContextClassLoader().getResource("写相对路径，但是这个相对路径从src下出发开始找").getPath;
+
+		这种方式是为了获取一个文件的绝对路径。但是该文件要求放在类路径下，换句话说：也就是说放在src下面。
+		src下是类的根路径。
+
+		直接以流的形式返回
+		InputStream in = Thread.currrentThread().getContextClassLoader().getResourceAsStream("");
+
+	1.2、 IO + Properties，怎么快速绑定属性资源文件？
+		// 要求：
+			第一这个文件必须在类路径下
+			第二这个文件必须是以.properties结尾。
+		ResourceBundle bundle = ResourceBundle.getBundle("路径");
+		String value = bundle.getString(key);

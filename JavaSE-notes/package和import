@@ -1,0 +1,31 @@
+1、package
+	第一：package出现在java源文件第一行。
+	第二：带有包名怎么编译？
+		javac -d .xxx.java
+
+	第三：怎么运行？
+		java 完整类名	
+
+	补充：以后说类名的时候，如果带着包名描述，表示完整类名。
+	如果没有带包，描述的话，表示简类名。
+		java.util.Scanner 完整类名。
+		Scanner 简类名	
+
+2、import
+	import什么时候不需要？
+		java.lang不需要
+		同包下不需要。
+		其他一律都需要。
+	怎么用？
+		import 完整类名;
+		import 包名.*;		
+
+		import java.util.Scanner; //完整类名
+
+		//这个.*是导入整个包
+		//那么效率因此会变低嘛
+		//并不会，因为编译器在编译的时候，会自动将*编程具体的类名。
+		import java.util.*;	
+
+		//想省懒劲你不能太省了。
+		import java.*;	//这是不允许的，因为在java语言中规定，这里的*只代表某些类的名字

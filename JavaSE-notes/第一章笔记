@@ -1,0 +1,69 @@
+#第一章笔记
+   *我们做的是通过正确的语法给jdk中的虚拟机（JVM）进行编译，编译后产生字节码也就是.class后缀的文件
+   *该文件不是纯粹的二进制符号，无法直接通过操作系统运行，而是需要通过虚拟机运行
+   *java 程序的运行需要两个阶段
+    -编译阶段
+     *检查.java源文件语法，再进行编译
+     *java程序员需要使用jdk整合包中的javac.<java编译器>进行编译
+      -javac在Dos命令窗口中使用
+      -javac的使用规则：
+       javac java源文件的路径
+      -javac是java的一个编译工具
+     *一个javac程序可以编译多个字节码文件
+      -在字节码（class）生成之后，即使删除java源文件，也不影响后续的运行 
+
+    -运行阶段
+   *.java文件没法直接运行（也就是说无法将源文件直接放入虚拟机中运行，得先编译） 
+   *jdk安装后，除了一个自带的javac.exe，还有另一个工具&命令 java.exe
+        -java.exe在dos窗口使用
+        -运行范例：
+           java 类名
+           例如：
+                   硬盘上有一个A.class,那么就这么用：java A
+                   注意不能写成java A.class
+    -运行过程：
+         *打开DOS命令窗口
+         *输入：Java A
+         *java.exe命令会启动JVM ，jvm会启动类加载器Classloader
+         *classloader 会去硬盘上搜索A.class，找到该文件则将该字节码文件装载在jvm
+         *jvm将A.class字节码文件解释称二进制101010001这样的的数据
+         *然后操作系统将二进制与底层硬件平台进行交互
+  -JRE（runtime environment） java运行环境
+  -JDK 包括运行环境（jre）还有开发环境
+  -JVM 仅是虚拟机，无法单独安装
+     *包括其中之间的关系： 其中JDK包括 JRE包括 JVM
+  #注释
+  <// （单行注释）>
+  </*
+  gjhgjhgd
+  gfhfhfh
+
+  */     （多行注释）>
+  </**
+  * javadoc注释
+  * javadoc注释
+  * javadoc注释
+  */>
+  javadoc注释是可通过javadoc.exe程序解析识别，并生成帮助文档，类似买电视机给用户看的说明书
+  而前两种注释方法则是直接在开发工程中给程序开发员看，并不会随着后期打印出来。
+
+   #语法
+   public static void main(String[] args)为方法体
+   public class HelloWorld 为类体
+   类体里不能直接编写java语句「除非声明变量」
+   而方法体中可以编写多条java语句 例：system.out.println()
+   主方法是程序的入口，是固定的写法，是由SUN公司制定。
+
+ #public class 与 class的区别
+ *一个java源文件中可以定义多个calss
+
+ *一个java源文件中public 的class 不是必须的
+
+ *一个class会定义生成一个xxx.class字节码文件
+
+ *当一个java源文件中出现public class XXX定义公开的类的话，只能有一个，并且该类名称必须和java源文件名称一致
+
+ *每一个class当中都可以编写main方法，都可以设定程序的入口，想执行B.calss 中的main方法：java B，想执行X.class中的main方法：java X
+    *注意：当在命令窗口中执行java Hello， 那么要求Hello.class 当中必须要有主方法，没有主方法就会出现运行阶段的错误
+
+

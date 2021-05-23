@@ -1,0 +1,45 @@
+多态的应用(你在开发过程中，你会天天用，到处用！！！！！)
+
+多态在开发中的作用是：
+	降低程序的耦合度，提高程序的扩展力。
+	public class Master{
+		public void feed(Dog d){
+
+		}
+		public void feed(Cat c){
+
+		}
+	}
+	//以上的代码中表示：Master和Dog以及Cat的关系很紧密(耦合度高)。导致拓展力很差。
+
+	public class Master{
+		public void feed(Pet pet){
+
+		}
+	}
+	以上的代表比表示：Master和Dog以及Cat的关系就脱离了，Master关注的Pet类。
+	这样的Master和Dog以及Cat的耦合度就降低了，提高了软件的扩展性。
+
+面向对象的三大特征：
+	封装、继承、多态
+	真的是一环扣一环。
+
+	有了封装，有这种整体的概念之后
+	对象和对象之间产生了继承
+	有了继承之后，才有了方法的覆盖和多态。
+
+	public class Animal{
+		public void move(){
+
+		}
+	}
+	public class Cat extends Animal{
+		//重写move方法      -------->有人疑问为什么不直接重写一个新的方法，原因是新的方法就是面向具体编程，就不再是面向抽象编程并且新的方法无法使用多态，也就会耦合度高拓展能力低。
+		public void move{
+
+		}
+	}
+这里提到了一个软件开发的原则：
+	七大原则最基本的原则：OCP(对拓展开放，对修改关闭)	
+	目的是：降低程序耦合度，提高程序拓展能力。
+	面向抽象编程，不建议面向具体编程。

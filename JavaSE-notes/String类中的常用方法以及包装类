@@ -1,0 +1,56 @@
+1、String类
+	1.1、对String在内存存储方面的理解：
+		第一：字符串一旦创建不可变。
+		第二：双引号括起来的字符串存储在字符串常量池中。
+		第三：字符串的比较必须使用equals方法。
+		第四：String已经重写了toString()和equals()方法。
+
+	1.2、String的构造方法。
+		String s = "";
+		String s = new String("");
+		String s = new String(byte数组);
+		String s = new String(bute数组,起始下标,长度);
+		String s = new String(char数组);
+		String s = new String(char数组,起始下标,长度);
+
+	1.3、String类常用的21个方法。
+
+2、StringBuffer/StringBuilder
+	2.1、StringBuffer/StringBuilder可以看作可变长度字符串。
+	2.2、StringBuffer/StringBuilder初始化容量是16.
+	2.3、SteingBuffer/SgringBuilder是完成字符串拼接操作的，方法名：append
+	2.4、StringBuffer是线程安全的。StringBuilder是非线程安全的。
+	2.5、频繁进行字符串拼接不建议使用“+”
+
+3、八种基本类型对应的包装类
+	3.1、包装类存在有什么用？
+		方便编程。
+	3.2、八种包装的类名是什么？
+		Byte
+		Short
+		Integer
+		Long
+		Float
+		Double
+		Boolean
+		Character
+	3.3、所有数字的父类Number
+	3.4、照葫芦画瓢：学习Integer，其他的模仿Integer。
+	3.5、什么是装箱？什么是拆箱？
+
+	3.6、什么是自动装箱和自动拆箱，代码怎么写？
+		Integer x = 100;
+		Integer y = 100;
+		System.out.println(x == y); // true
+
+		Integer x = 128;
+		Integer y = 128;
+		System.out.println(x == y);	//false
+		原因：当这个包装类中的数字超过127，就不再调用方法区中的整数型常量池中的对象，因此再自己创建一个新的对象，再次使用== 进行比较两个对象的内存地址，发现地址不同因此返回false
+
+	3.7、Integer类常用方法。
+		Integer.valueOf()
+		Integer.parseInt("123")			
+		Integer.parseInt("中文"):NumberFormatException
+
+	3.8、Integer String int 三种类型互相转换。	

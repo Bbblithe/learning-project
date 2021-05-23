@@ -1,0 +1,69 @@
+1、反射机制（比较简单，只要会查帮助文档，就可以了。）
+	1.1、反射机制有什么用？
+		通过java语言中的反射机制可以操作字节码文件。
+		有点类似于黑客。（可以读和修改字节码文件。）
+		通过反射机制可以操作代码片段。（class文件。）
+
+	1.2、反射机制的相关类在哪个包下？
+		java.lang.reflect.*;
+
+	1.3、反射机制相关的重要类有哪些？
+		java.lang.Class：代表整个字节码，代表一个类型，代表整个类。
+
+		java.lang.reflect.Method：代表字节码中的方法字节码。代表类中的方法
+
+		java.lang.reflect.Constructor：代表字节码中的构造方法字节码。代表类中的构造方法
+
+		java.lang.reflect.Field：代表字节码中的属性字节码。	代表类中的成员变量（静态变量和实力变量）
+
+		java.lang.Class:
+			public class User(){
+				// Field 
+				int no;
+
+				// Constructor
+				public User(){
+
+				} 
+				public User(int no){
+					this.no = no;
+				}
+
+				// Method
+				public void setNo(int no){
+					this.no = no;
+				}
+				public int gerNo(){
+					return no;
+				}
+			}	
+
+	1.4、在java中获取class的三种方式？
+		第一种：
+			Class c = Class.forName("完整类名");
+
+		第二种：
+			Class c = 对象.getClass();
+
+		第三种：
+			Class c = 任何类型.class;
+			Class c = String.class;
+			Class c = int.class;
+
+	1.5、获取了Class之后，可以调用无参数构造方法来实例化对象
+
+		//c代表的就是日期Date类型
+		Class c = Class.forName("java.Util.Date");
+
+		// 实例化一个Date日期类型的对象
+		Objcet o = c.newInstance();
+
+		一定要注意：
+			newInstance()底层调用的是该类型的无参数构造方法。
+			如果没有这个无参数构造方法会出现“实例化异常”。
+
+	1.6、如果你只想让“静态代码块”执行的话，你可以怎么做？
+		Class.forName("该类的类名");
+		这样类就加载了，类加载的时候，静态代码块执行！！！	
+		在这里，对该方法的返回值不感兴趣，主要是为了使用“类加载”这个动作。
+

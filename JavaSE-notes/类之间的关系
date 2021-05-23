@@ -1,0 +1,22 @@
+类型和类型之间的关系：
+	is a(继承)、 has a(关联)、 like a(实现)
+
+		is a：
+			Cat is a Animal（猫是一个动物）
+			凡是能够满足is a 的表示“继承关系”
+
+		has a：
+			I has a pen（我有一只笔）
+			凡是能够满足has a关系的表示“关联关系”
+			关联关系通常以“属性”的形式存在。
+			A{
+				B b;
+			}
+
+		like a：
+			Cook like a menu（厨师像一个菜单一样）driver like a navagition（还有司机像导航一样）
+			凡是能够满足like a 关系的表示“实现关系”
+			实现关系通常是：类实现接口。
+			A implements B	
+
+			
