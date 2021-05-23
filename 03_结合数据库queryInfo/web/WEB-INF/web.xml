@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="https://jakarta.ee/xml/ns/jakartaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_5_0.xsd"
+         version="5.0">
+    <servlet>
+        <servlet-name>QueryProvinceServlet</servlet-name>
+        <servlet-class>com.blithe.controller.QueryProvinceServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>QueryProvinceServlet</servlet-name>
+        <url-pattern>/queryProvince</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>QueryJsonServlet</servlet-name>
+        <servlet-class>com.blithe.controller.QueryJsonServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>QueryJsonServlet</servlet-name>
+        <url-pattern>/queryjson</url-pattern>
+    </servlet-mapping>
+</web-app>
