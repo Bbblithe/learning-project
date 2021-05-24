@@ -1,0 +1,431 @@
+
+3、子查詢
+
+3.1、什么是子查询？子查询都可以出现在那里？
+	select语句当中潜逃select语句，被嵌套的select语句是子查询。
+	子查询可以出现在哪里？
+		select
+			..(select).
+		from 
+			..(select).
+		where 
+			..(select).
+
+3.2、where子句中使用子查询
+
+案例：找出高于平均薪资的员工信息
+	select * from emp where sal > avg(sal);// 错误的写法，where后面不能直接使用分组函数。
+
+
+	select * from emp where sal > (select avg(sal) from emp);
+	+-------+-------+-----------+------+------------+---------+------+--------+
+	| EMPNO | ENAME | JOB       | MGR  | HIREDATE   | SAL     | COMM | DEPTNO |
+	+-------+-------+-----------+------+------------+---------+------+--------+
+	|  7566 | JONES | MANAGER   | 7839 | 1981-04-02 | 2975.00 | NULL |     20 |
+	|  7698 | BLAKE | MANAGER   | 7839 | 1981-05-01 | 2850.00 | NULL |     30 |
+	|  7782 | CLARK | MANAGER   | 7839 | 1981-06-09 | 2450.00 | NULL |     10 |
+	|  7788 | SCOTT | ANALYST   | 7566 | 1987-04-19 | 3000.00 | NULL |     20 |
+	|  7839 | KING  | PRESIDENT | NULL | 1981-11-17 | 5000.00 | NULL |     10 |
+	|  7902 | FORD  | ANALYST   | 7566 | 1981-12-03 | 3000.00 | NULL |     20 |
+	+-------+-------+-----------+------+------------+---------+------+--------+
+
+3.3、from后面嵌套子查询
+
+案例：找出每个部门平均薪水的薪资等级。
+第一步：找出每个部门平均薪水(按照部门编号分组，求sal的平均分组)
+select avg(sal) as avgsal,deptno from emp group by deptno;
++-------------+--------+
+| avgsal      | deptno |
++-------------+--------+
+| 2175.000000 |     20 |
+| 1566.666667 |     30 |
+| 2916.666667 |     10 |
++-------------+--------+
+
+第二步：将以上的查询结果当作临时表t，让t表和salgrade表连接，条件是：t.avgsal between s.losal and hisal;
+select t.deptno,t.avgsal,s.grade from (select avg(sal) as avgsal,deptno from emp group by deptno) t join salgrade s on t.avgsal between s.losal and s.hisal;
+
++--------+-------------+-------+
+| deptno | avgsal      | grade |
++--------+-------------+-------+
+|     20 | 2175.000000 |     4 |
+|     30 | 1566.666667 |     3 |
+|     10 | 2916.666667 |     4 |
++--------+-------------+-------+
+
+案例：找出每个部门平均的薪资等级。
+第一步：找出每个部门成员的薪资等级
+select e.deptno,e.sal,s.grade from emp e join salgrade s on e.sal between s.losal and s.hisal;
++--------+---------+-------+
+| deptno | sal     | grade |
++--------+---------+-------+
+|     20 |  800.00 |     1 |
+|     30 | 1600.00 |     3 |
+|     30 | 1250.00 |     2 |
+|     20 | 2975.00 |     4 |
+|     30 | 1250.00 |     2 |
+|     30 | 2850.00 |     4 |
+|     10 | 2450.00 |     4 |
+|     20 | 3000.00 |     4 |
+|     10 | 5000.00 |     5 |
+|     30 | 1500.00 |     3 |
+|     20 | 1100.00 |     1 |
+|     30 |  950.00 |     1 |
+|     20 | 3000.00 |     4 |
+|     10 | 1300.00 |     2 |
++--------+---------+-------+
+
+//我自己的想法（第二步：将上述的表格看作a表，不同的部门的工资等级分类求平均值？）
+select avg(a.grade) as '平均薪水等级',a.deptno from (select e.deptno,e.sal,s.grade from emp e join salgrade s on e.sal between s.losal and s.hisal) a group by a.deptno;
+
+正确的第二步：基于以上结果，继续按照deptno分组，求grade平均值。
+
+select deptno,avg(s.grade) from emp e join salgrade s on e.sal between s.losal and s.hisal group by deptno;
++--------+------------+
+| deptno | avg(grade) |
++--------+------------+
+|     20 |     2.8000 |
+|     30 |     2.5000 |
+|     10 |     3.6667 |
++--------+------------+
+
+3.4、在select后面嵌套子查询。
+案例：找出每个员工所在的部门名称，要求显示员工名和部门名。
+通过连接的方式：
+	select 
+		e.ename,d.dname
+	from
+		emp e 
+	join 
+		dept d
+	on 
+		e.deptno = d.deptno;
+
+select e.ename,(select d.dname from dept d where e.deptno = d.deptno) as dname from emp e;
++--------+------------+
+| ename  | dname      |
++--------+------------+
+| SMITH  | RESEARCH   |
+| ALLEN  | SALES      |
+| WARD   | SALES      |
+| JONES  | RESEARCH   |
+| MARTIN | SALES      |
+| BLAKE  | SALES      |
+| CLARK  | ACCOUNTING |
+| SCOTT  | RESEARCH   |
+| KING   | ACCOUNTING |
+| TURNER | SALES      |
+| ADAMS  | RESEARCH   |
+| JAMES  | SALES      |
+| FORD   | RESEARCH   |
+| MILLER | ACCOUNTING |
++--------+------------+
+
+4、union （可以将查询结果集相加）
+
+案例：找出工作岗位是SALESMAN和MANAGER的员工？
+第一种：select ename,job from emp where job = 'MANAGER' or job = 'SALESMAN';
+第二种：select ename,job from emp where job in ('MANAGER','SALESMAN');
+第三种：union
+select ename,job from emp where job = 'MANAGER'
+union
+select ename,job from emp where job = 'SALESMAN';
+
+两张不相干的表中的数据拼接在一起显示
+select ename from emp 
+union 
+select dname from dept;
+
+mysql> select ename from emp 
+    -> union 
+    -> select dname,loc from dept;//如果拼接的两个不同列数的表格，则会报错。
+ERROR 1222 (21000): The used SELECT statements have a different number of columns
+
+5、limit（重点中的重点，以后分页查询全靠它了。）
+
+5.1、limit是mysql特有的，其他数据库中没有，不通用。（Oracle中有一个相同的机制，叫做rownum）
+
+5.2、limit取结果集中的部分数据，这是它的作用。
+
+5.3、语法机制：
+	limit startIndex，length
+		startIndex表示起始位置
+		length表示取几个
+
+	案例：取出工资前5名的员工（思路：降序取前5个）
+		select ename,sal from emp order by sal desc;
+		取前5个：
+			select ename,sal from emp order by sal desc limit 0,5;
+			select ename,sal from emp order by sal desc limit 5;
+
+5.4、limit是sql语句最后执行的一个环节：
+	select 		5
+		...
+	from 		1
+		... 
+	where 		2
+		...
+	group by 	3
+		...
+	having		4
+		...
+	order by 	6
+		...
+	limit		7
+		...;
+
+5.5、案例：找出工资排名在第4到第9名的员工？
+	select ename,sal from emp order by sal limit 3,6;
+	+--------+---------+
+	| ename  | sal     |
+	+--------+---------+
+	| WARD   | 1250.00 |
+	| MARTIN | 1250.00 |
+	| MILLER | 1300.00 |
+	| TURNER | 1500.00 |
+	| ALLEN  | 1600.00 |
+	| CLARK  | 2450.00 |
+	+--------+---------+
+
+5.6、通用的标准分页sql？
+
+每页显示3条记录：
+第1页：0,3
+第2页：3,3
+第3页：6,3
+第4页：9,3
+第5页：12,3
+
+没页显示pageSize条记录：
+第pageNo页：(pageNo-1) * pageSize,pageSize
+
+pageSize是什么？是每页显示多少条记录
+pageNo是什么？显示第几页
+
+java代码{
+	int pageNo = 2; // 页码是2
+	int pageSize = 10; // 每页显示10条
+
+	limit(pageNo - 1) * pageSize,pageSieze
+}
+
+6、创建表：
+	
+	建表语句的语法格式：
+		create table 表名(
+			字段名1 数据类型,
+			字段名2 数据类型,
+			字段名3 数据类型,
+			...
+		);
+
+	关于MySQL当中字段的数据类型？以下只说常见的
+		int 	整数型（java中的int）
+		bigint	长整型（java中的long）
+		float	浮点型（java中的float double）
+		char	定长字符串（String）
+		varchar	可变长字符串（StringBuffer/StringBuilder）
+		date	日期类型（对应java中的java.sql.Date类型）
+		BLOB	二进制大对象（存储图片、视频等流媒体信息）Binary Large OBject（对应java中的Object）
+		CLOB	字符大对象（存储较大文本，比如，可以存储4G的字符串。）Character Large OBject（对应java中的Object）
+		...
+
+	char和varchar怎么选择？
+		在实际的开发中，当某个字段的数据长度不发生改变的时候，是定长的，例如：性别、生日等都是采用char。
+		当一个字段的数据长度不确定，例如：简介、姓名等都是采用varchar。
+
+	BLOB和CLOB类型的使用？
+		电影表：t_movie
+		id(int)      name(varchar)       playtime(date/char)        poster//海报(BLOB)     short plot(CLOB)
+		-------------------------------------------------------------------------------------------------------- 
+		    1			蜘蛛侠				
+		    2
+		    3
+
+    表名在数据库当中一般建议以：t_或者tbl_开始。
+
+    创建学生表：
+    	学生信息包括：
+    		学号、姓名、性别、班级编号、生日
+    		学号：bigint
+    		姓名：varchar
+    		性别：char
+    		班级编号：int
+    		生日：char
+
+7、insert语句插入数据
+	语法格式：
+		insert into 表名(字段名1.字,字段名2,字段名3,....) values(值1,值2,值3,....)
+		要求：字段的数量和值的数量相同，并且数据类型要对应相同。
+
+		insert into t_student(no,name,sex,classno,birth) values(2015022136,'blithe','m','高三1班',2003-04-15)
+		+------------+--------+------+------------+-------+
+		| no         | name   | sex  | classno    | birth |
+		+------------+--------+------+------------+-------+
+		| 2015022135 | blithe | m    | 高三1班    | 1985  |
+		+------------+--------+------+------------+-------+
+
+		可以换顺序插入：
+		insert into t_student(name,sex,classno,no,birth) values('andy','m','信息工程2班',2015022130,'1993-10-15');
+
+		drop table if exists t_student;// 当这个表存在的话删除。
+
+		//创建表格并赋上默认值
+		create table t_student(
+		no bigint,
+		name varchar(255),
+		sex char(1) default 'm',
+		classno varchar(255),
+		birth char(10)
+		);
+
+		select * from t_student;
+		+------+----------+------+---------+-------+
+		| no   | name     | sex  | classno | birth |
+		+------+----------+------+---------+-------+
+		| NULL | zhangsan | m    | NULL    | NULL  |
+		+------+----------+------+---------+-------+
+
+		需要注意的地方：
+			当一条insert语句执行成功之后，表格当中必然会多一行记录。
+			即使多的这一行记录当中某些字段是NULL，后期也没有办法再执行
+			insert语句插入数据了，只能使用update语句进行更新。
+
+	// 字段可以省略不写，但是后面的values对数量和顺序都要有要求。
+	insert into t_student values(1,'jennifer','f','信息工程3班','1986-10-23');
+	+------+----------+------+------------------+------------+
+	| no   | name     | sex  | classno          | birth      |
+	+------+----------+------+------------------+------------+
+	| NULL | blithe   | m    | NULL             | NULL       |
+	|    1 | jennider | f    | 信息工程3班      | 1986-10-23 |
+	+------+----------+------+------------------+------------+
+
+	insert into t_student values(1,'jack','m','gaosnan');
+	ERROR 1136 (21S01): Column count doesn't match value count at row 1
+
+	// 一次插入多行数据
+	insert into t_student
+		(no,name,sex,classno,birth) 
+	values
+		(3,'andy','m','信息工程1班','2003-04-13'),
+		(4,'zhangsan','f','信息工程1班','2002-12-09');
+
+	+------+----------+------+------------------+------------+
+	| no   | name     | sex  | classno          | birth      |
+	+------+----------+------+------------------+------------+
+	| NULL | blithe   | m    | NULL             | NULL       |
+	|    1 | jennider | f    | 信息工程3班      | 1986-10-23 |
+	|    3 | andy     | m    | 信息工程1班      | 2003-04-13 |
+	|    4 | zhangsan | f    | 信息工程1班      | 2002-12-09 |
+	+------+----------+------+------------------+------------+
+
+8、表的复制
+	语法：
+		create table 表名 as select语句;
+		将查询结果当作表创建出来。
+
+9、将查询结果插入到一张表中？
+insert into dept1 select * from dept;
+select * from dept1;
++--------+------------+----------+
+| DEPTNO | DNAME      | LOC      |
++--------+------------+----------+
+|     10 | ACCOUNTING | NEW YORK |
+|     20 | RESEARCH   | DALLAS   |
+|     30 | SALES      | CHICAGO  |
+|     40 | OPERATIONS | BOSTON   |
+|     10 | ACCOUNTING | NEW YORK |
+|     20 | RESEARCH   | DALLAS   |
+|     30 | SALES      | CHICAGO  |
+|     40 | OPERATIONS | BOSTON   |
++--------+------------+----------+
+
+10、修改数据：update
+	语法格式：
+		update 表名 set 字段名1=值1,字段名2=值2... where 条件;
+
+	注意：没有条件整张表数据全部更新。
+
+	案例：将部门10的LOC修改为shanghai，将部门名称修改为renshibu
+	update dept1 set loc = 'shanghai',dname = 'renshibu' where deptno = 10;
+	+--------+------------+----------+
+	| DEPTNO | DNAME      | LOC      |
+	+--------+------------+----------+
+	|     10 | renshibu   | shanghai |
+	|     20 | RESEARCH   | DALLAS   |
+	|     30 | SALES      | CHICAGO  |
+	|     40 | OPERATIONS | BOSTON   |
+	|     10 | renshibu   | shanghai |
+	|     20 | RESEARCH   | DALLAS   |
+	|     30 | SALES      | CHICAGO  |
+	|     40 | OPERATIONS | BOSTON   |
+	+--------+------------+----------+
+
+	更新所有记录
+	update dept1 set loc = 'x',dname = 'y';
+	+--------+-------+------+
+	| DEPTNO | DNAME | LOC  |
+	+--------+-------+------+
+	|     10 | y     | x    |
+	|     20 | y     | x    |
+	|     30 | y     | x    |
+	|     40 | y     | x    |
+	|     10 | y     | x    |
+	|     20 | y     | x    |
+	|     30 | y     | x    |
+	|     40 | y     | x    |
+	+--------+-------+------+
+
+11、删除数据
+	语法格式：
+		delete from 表名 where 条件;
+
+	注意：没有条件全部删除.
+
+	删除10部门数据？
+		delete from dept1 where deptno = 10;
+
+	删除所有记录
+		delete from dept1;
+
+	怎么删除大表中的数据？（重点）
+		truncate table 表名; // 表被截断，不可回滚。永久丢失。
+	删除表？
+		drop table 表名;// 这个通用
+		drop table if exists 表名;// oracle 不支持这种写法。
+
+12、DQL（select）DML（insert delete update） DDL（create drop alter）
+// 对于表结构的修改，这里不讲了，大家使用工具完成即可，因为在实际开发中表一旦
+设计好之后，对表结构的修改是很少的，修改表结构就是对之前的设计进行了否定，即使
+需要修改表架构，我们也可以直接使用工具操作。修改表结构的语句不会出现在java 代码当中。
+出现在java代码当中的sql包括：insert delete update select（这些都是表中的数据操作。）
+
+增删改查有一个术语：CRUD操作
+Create（增） Retrieve（检索）Update（修改）Delete（删除）
+
+13、约束（Constraint）
+
+13.1、什么是约束？常见的约束有哪些？
+	在创建表的时候，可以给表的字段添加相应的约束，添加约束的目的是为了保证表中数据的
+	合法性、有效性、完整性。
+	常见的约束有哪些呢？
+		非空约束（not null）：约束的字段不能为null
+		唯一约束（unique）：约束的字段不能重复
+		主键约束（primary key）：约束的字段既不能为NULL，也不能重复（简称PK）
+		外键约束（foreign key）：...（简称FK）
+		检查约束（check）：注意Oracle数据库有check约束，但是mysql没有，目前mysql不支持该约束。
+
+13.2、非空约束 not null
+	drop table if exists t_user;
+	create table t_user(
+		id int,
+		username varchar(255) not null,
+		password varchar(255)
+	);
+
+	insert into t_user(id,password) values(1,'123');
+	//ERROR 1364 (HY000): Field 'username' doesn't have a default value
+
+	insert into t_user values(1,'blithe','2015022136');
+
+13.3、
