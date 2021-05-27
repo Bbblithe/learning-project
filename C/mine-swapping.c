@@ -52,7 +52,19 @@ int get_mine_around(char mine[ROWS][COLS] , int x, int y){
     mine[x][y - 1] + mine[x - 1][y - 1] - 8 * '0';
 }
 
-void FindMine(char mine[ROWS][COLS] , char check[ROWS][COLS] , int row , int col){
+void Refresh(char mine[ROWS][COLS] , char check[ROWS][COLS] , char mine2[ROWS][COLS] , int x , int y){
+    int count = get_mine_around(mine , x , y);
+    if(!count && x > 0 && y > 0 && mine2[x][y] != ' '){
+        mine2[x][y] = ' ';
+        Refresh(mine, check, mine2, x - 1, y);
+		Refresh(mine, check, mine2, x + 1, y);
+		Refresh(mine, check, mine2, x, y + 1);
+		Refresh(mine, check, mine2, x, y - 1);
+    }
+    check[x][y] = count + '0';
+}
+
+void FindMine(char mine[ROWS][COLS] , char check[ROWS][COLS] ,char copymine[ROWS][COLS], int row , int col){
     int x , y ;
     int count = EASY_COUNT;
     int win = 0 ;
@@ -68,8 +80,9 @@ void FindMine(char mine[ROWS][COLS] , char check[ROWS][COLS] , int row , int col
                 break;
             }else{ // 2.不是雷
                 // 计算x,y坐标周围有几个雷
-                int count = get_mine_around(mine , x , y);
-                check[x][y] = count + '0';
+                // int count = get_mine_around(mine , x , y);
+                // check[x][y] = count + '0';
+                Refresh(mine , check , copymine , x , y);
                 DisplayBoard(check , row , col);
                 win ++;
             }
@@ -80,6 +93,15 @@ void FindMine(char mine[ROWS][COLS] , char check[ROWS][COLS] , int row , int col
     if(win == row*col - count){
         printf("恭喜你，排雷成功\n");
         DisplayBoard(mine , row , col);
+    }
+}
+
+void copy(char copymine[ROWS][COLS], char mine[ROWS][COLS],int row,int col){
+	int i = 0, j = 0;
+	for (i = 0; i < row; i++){
+		for (j = 0; j < col; j++){
+			copymine[i][j] = mine[i][j];
+		}
     }
 }
 
@@ -97,6 +119,11 @@ void game(){
 
     // 2.排查出的雷的信息
     char check[ROWS][COLS] = { 0 };
+
+    // 3.复制一份雷图用来操作使用递归
+    char copymine[ROWS][COLS] = { '0' };
+    copy(copymine , mine , ROW , COL);
+
     // 初始化
     InitBoard(mine , ROWS , COLS , '0');
     InitBoard(check , ROWS , COLS , '*');
@@ -104,10 +131,10 @@ void game(){
     DisplayBoard(check , ROW , COL);
     // 1.布置雷
     setMine(mine , ROW , COL);
-    // DisplayBoard(mine , ROW ,COL);
+    DisplayBoard(mine , ROW ,COL);
 
     // 2.扫雷
-    FindMine(mine , check , ROW , COL);
+    FindMine(mine , check , copymine , ROW , COL);
 }
 
 void test(){
