@@ -1,4 +1,4 @@
-package 第四章.队列;
+package 第四章.编程作业;
 
 /**
  * Author:  blithe.xwj
@@ -52,5 +52,19 @@ public class Queue {
       return nItems;
    }
 
-
+   public void show(){
+      int i;
+      if(rear > front){
+         for(i = front ; i <= rear ; i++){
+            System.out.println(queArray[i]);
+         }
+      }else{
+         for(i = front ; i < maxSize ; i ++){
+            System.out.println(queArray[i]);
+         }
+         for( i = 0 ; i <= rear ; i ++){
+            System.out.println(queArray[i]);
+         }
+      }
+   }
 }
