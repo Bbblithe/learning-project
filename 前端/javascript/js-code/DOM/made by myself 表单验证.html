@@ -1,0 +1,171 @@
+<!--
+	表单验证：
+		1、用户名不能为空 			
+		2、用户名必须在6-14位之间  
+		3、用户名只能有数字和字母组成，不能含有其他符号（正则表达式） 
+		4、密码和确认密码一致，邮箱地址合法。 
+		5、统一失去焦点验证 
+		6、错误提示信息统一在span标签中提示，并且要求字体12号，红色。 
+		7、文本框再次获得焦点后，清空错误提示信息。如果文本框中数据不合法要求清空文本框的value 
+		8、最终表单中所有项均合法方可提交
+-->
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset = "utf-8">
+		<title>表单验证</title>
+		<style type = "text/css">
+			.legal{
+				color:green;
+				font-size:12px;
+			}
+
+			.illegal{
+				color:red;
+				font-size:12px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<script type = "text/javascript">
+			window.onload = function(){
+				var flag1 = false;
+				var flag2 = false;
+				var flag3 = false;
+				var flag4 = false;
+
+				// 完成用户名的验证
+				document.getElementById("username").onblur = function(){
+					var rgrExp = /^[0-9-a-z-A-Z]{6,14}$/g;// 这步正则表达式完成了1，2，3
+					var legal = rgrExp.test(document.getElementById("username").value);
+					if(legal){
+						document.getElementById("usernamelegal").innerText = "✅";
+						document.getElementById("usernameillegal").innerText = "";
+						flag1 = true;
+					}else{
+						document.getElementById("usernameillegal").innerText = "用户名不合法"
+						document.getElementById("usernamelegal").innerText = "";
+						flag1 = false;
+					}
+				}
+				// 用户名-通过布尔标记，完成了如果错误则清空提示信息
+				document.getElementById("username").onfocus = function(){
+					if(!flag1){
+						document.getElementById("usernameillegal").innerText = "";
+						document.getElementById("username").value = "";
+					}
+				}
+
+				// 完成密码验证
+				document.getElementById("password").onblur = function(){
+					// 该正则表达式完成了：密码不能纯数字，密码不能纯字母，密码必须大小写均有,可以有_!.
+					var rglExp = /^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z\.!_]{6,16}$/g;
+					var legal = rglExp.test(document.getElementById("password").value);
+					if(legal){
+						document.getElementById("passwordlegal").innerText = "✅"
+						document.getElementById("passwordillegal").innerText = "";
+						flag2 = true;
+					}else{
+						document.getElementById("passwordillegal").innerText = "密码不合法";
+						document.getElementById("passwordlegal").innerText = "";
+						flag2 = false;
+					}
+				}
+
+				// 密码-通过布尔标记，完成了如果错误则清空提示消息
+				document.getElementById("password").onfocus = function(){
+					if(!flag2){
+						document.getElementById("passwordillegal").innerText = "";
+						document.getElementById("password").value = "";
+					}
+				}
+
+				// 完成确认密码验证
+				document.getElementById("confirmPassword").onblur = function(){
+					if(document.getElementById("confirmPassword").value == document.getElementById("password").value){
+						if(document.getElementById("confirmPassword").value == ""){
+							document.getElementById("cfmPwdillegal").innerText = "不能为空";
+							flag3 = false;
+						}else{
+							document.getElementById("cfmPwdlegal").innerText = "✅";
+							document.getElementById("cfmPwdillegal").innerText = "";
+							flag3 = true;
+						}
+					}else{
+						document.getElementById("cfmPwdillegal").innerText = "两次密码不同";
+						document.getElementById("cfmPwdlegal").innerText = "";
+						flag3 = false;
+					}
+				}
+
+				// 通过布尔标记来实现，错误就清空消息，以及输入内容value
+				document.getElementById("confirmPassword").onfocus = function(){
+					if(!flag3){
+						document.getElementById("cfmPwdillegal").innerText = "";
+						document.getElementById("confirmPassword").value = "";
+					}
+				}
+
+
+				// 完成验证邮箱
+				document.getElementById("email").onblur = function(){
+					var regularExp = /^[\w.%+-]+@[\w.-]+\.[a-zA-Z]{2,6}$/;
+					var legal = regularExp.test(document.getElementById("email").value);
+					if(legal){
+						document.getElementById("emaillegal").innerText = "✅";
+						document.getElementById("emailillegal").innerText = "";
+						flag4 = true;
+					}else{
+						document.getElementById("emailillegal").innerText = "该邮件地址不合法";
+						document.getElementById("emaillegal").innerText = "";
+						flag4 = false;
+					}
+				}
+
+				document.getElementById("email").onfocus = function(){
+					if(!flag4){
+						document.getElementById("emailillegal").innerText = "";
+						document.getElementById("email").value = "";
+					}
+				}
+
+				document.getElementById("submit1").onmouseover = function(){
+					if(flag1&&flag2&&flag3&&flag4){
+						document.getElementById("submit1").type = "submit";
+					}else{
+						document.getElementById("submit1").type = "button";
+					}
+				}
+
+				document.getElementById("submit1").onclick = function(){
+					if(document.getElementById("submit1").type == "button"){
+						alert("提交信息中含有不合法信息，请检查后再次点击")
+					}else{
+						alert("提交成功");
+					}
+				}
+			}
+		</script>
+
+		<from action = "http://localhost:8080/jd/register" method = "post">
+			<input type = "text" id = "username" name="username1"/><b>用户名</b>
+			<span id = "usernamelegal" class = "legal"></span>
+			<span id = "usernameillegal" class = "illegal"></span>
+			<br>
+			<input type = "password" id = "password" name ="password1"/><b>密码</b>
+			<span id = "passwordlegal" class = "legal"></span>
+			<span id = "passwordillegal" class = "illegal"></span>
+			<br>
+			<input type = "password" id = "confirmPassword"/><b>确认密码</b>
+			<span id = "cfmPwdlegal" class = "legal"></span>
+			<span id = "cfmPwdillegal" class = "illegal"></span>
+			<br>
+			<input type = "text" id = "email" name = "email1"/><b>邮箱地址</b>
+			<span id = "emaillegal" class = "legal"></span>
+			<span id = "emailillegal" class = "illegal"></span>
+			<br>
+			<input type="button" id="submit1" value="注册"/>
+		</from>
+	</body>
+</html>

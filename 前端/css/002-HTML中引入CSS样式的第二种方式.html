@@ -1,0 +1,85 @@
+<!doctype html>
+<meta charset="utf-8">
+<html>
+	<head>
+		<title>HTML中引入CSS样式的第二种方式：样式块</title>
+
+		<style type="text/css">
+			/*
+				这是CSS的注释。
+			*/
+			/*
+				id选择器
+				语法格式：
+					#id{
+						样式名:样式值;
+						样式名:样式值;
+						样式名:样式值;
+						...
+					}
+			*/
+			#usernameErrorMsg{
+				color:red;
+				font-size:12px;
+			}
+
+			/*
+				标签选择器
+				语法格式:
+					标签名{
+						样式名:样式值;
+						样式名:样式值;
+						样式名:样式值;
+						...
+					}
+				标签选择器作用的范围比id选择器广。
+			*/
+			div {
+				background-color:black;
+				border:1px solid red;
+				width:100px;
+				height:100px;
+			}
+
+			/*
+				类选择器
+				语法格式：
+					.类名{
+						样式名:样式值;
+						样式名:样式值;
+						样式名:样式值;
+						...
+					}
+			*/
+			.myclass {
+				border:1px solid red;
+				width:400px;
+				height:20px;
+			}
+
+		</style>
+	</head>
+	<body>
+		
+		<!--
+			设置样式字体大小12px，颜色为红色！
+		-->
+		<span id="usernameErrorMsg">对不起，用户名不能为空！</span>
+
+		<div></div>
+		<div></div>
+		<div></div>
+
+		<br><br><br>
+		<!--class相同的标签可以认为是同一类标签。-->
+		<input type="text" class="myclass"/>
+
+		<br><br><br>
+
+		<select class="myclass">
+			<option>专科</option>
+			<option>本科</option>
+		</select>
+
+	</body>
+</html>

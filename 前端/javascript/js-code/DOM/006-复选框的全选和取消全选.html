@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset = "utf-8">
+		<title>复选框的全选和取消全选</title>
+	</head>
+	<body>
+		<script text="text/javascript">
+			/*
+			window.onload = function(){
+				var firstCheck = document.getElementById("firstCheck");
+				firstCheck.onclick = function(){
+					// 获取第一个复选框的选中状态(复选框对象是一个checkbox对象)
+					// 根据name获取所有元素
+					var aihaos = document.getElementsByName("aihao");
+					if(firstCheck.checked){
+						// 全选
+						for(i = 0 ; i < aihaos.length ; i++){
+							aihaos[i].checked = true;
+						}
+					}else{
+						// 取消全选
+						for(i = 0 ; i < aihaos.length ; i ++){
+							aihaos[i].checked = false;
+						}
+					}
+				}
+			}
+			*/
+			window.onload = function(){
+				var aihaos = document.getElementsByName("aihao");
+				var firstCheck = document.getElementById("firstCheck");
+				firstCheck.onclick = function(){
+					for(var i = 0 ; i < aihaos.length ; i++){
+						aihaos[i].checked = firstCheck.checked;
+					}
+				}
+
+				// 对以上数组进行遍历
+				var all = aihaos.length;
+				for(var i = 0 ; i < aihaos.length ; i++){
+					aihaos[i].onclick = function(){
+						var checkedCount = 0;
+						// 总数量和选中的数量相等的时候，第一个复选框选中。
+						for(var i = 0; i < aihaos.length; i++){
+							if(aihaos[i].checked){
+								checkedCount ++;
+							}
+						}
+						firstCheck.checked = (all == checkedCount);
+						/*
+						if(all == checkedCount){
+							firstCheck.checked = true;
+						}else{
+							firstCheck.checked = false;
+						}
+						*/
+					}
+				}
+
+			}
+
+		</script>
+
+		<input type="checkbox" id = "firstCheck"/><br>
+		<input type="checkbox" name = "aihao" value = "smoke"/>抽烟<br>
+		<input type="checkbox" name = "aihao" value = "drink"/>喝酒<br>
+		<input type="checkbox" name = "aihao" valie = "tt"/>烫头<br>
+	</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meat charset = "uft-8">
+		<title>JS代码的执行顺序</title>
+	</head>
+
+	<body>
+		<script type="text/javascript">
+			// 页面加载的过程中，将A函数注册给了load事件
+			// 页面加载完毕之后，load事件发生了，此时执行回调函数A。
+			// 回调韩式A执行的过程中把B函数注册给了id = "btn"的click事件
+			// 当id = "btn"的节点发生click事件之后，B函数被调用执行。
+			window.onload = function(){ // 这个回调函数叫做A
+				document.getElementById("btn").onclick = function(){ // 这个回调函数叫做B
+					alert("hello js");
+				};
+			};
+
+			/*
+			上方代码等同于下面，只不过更加简洁，同时上方代码还等同于0-16的代码
+			window.onload = ready;
+			function ready(){
+				var btn = document.getElementById("btn");
+				btn.onclick = function(){
+					alert("hello js");
+				}
+			}
+			*/
+
+		</script>
+
+		<input type= "button" value= "hello" id ="btn"/>
+
+	</body>
+</html>
