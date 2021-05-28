@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>dom对象转为jquery</title>
+		<script type="text/javascript" src="js/jquery-3.4.1.js"></script>
+		<script type="text/javascript">
+			function btnClick(){
+				// 获取dom对象
+				var obj = document.getElementById("btn");
+				// 使用dom的value属性，获取值。
+				alert("使用对象的属性==" + obj.value);
+
+				// 把dom对象转为jquery，使用jquery库中的函数
+				var $jobj = $(obj);
+				// 调用jquery中的函数，获取value的值
+				alert($jobj.val());
+				
+			}
+		</script>
+	</head>
+	<body>
+		<input type="button" id="btn" value="我是按钮" onclick="btnClick()">
+	</body>
+</html>

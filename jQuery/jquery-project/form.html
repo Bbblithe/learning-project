@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script text="text/javascript" src="js/jquery-3.4.1.js"></script>s
+		<script text="text/javascript">
+			function fun1(){
+				// 使用表单选择器 $(":type的值")
+				var $obj = $(":text");
+				// 获取value属性的值 val()是jquery中的函数，读取value属性值
+				alert($obj.val())
+			}
+
+			function fun2(){
+				// 定位radio
+				var $obj = $(":radio"); // 数组，目前是两个对象 man ， woman
+				// 循化数组，数组中的成员是dom对象，可以使用dom的属性或者函数
+				for(var i = 0 ; i < $obj.length ; i ++){
+					// 从数组值获取成员，使用下标的方式
+					var dom = $obj[i];
+					// 使用dom对象的属性，获取value值
+					alert(dom.value);
+				}
+			}
+
+			function fun3(){
+				// 定位checkbox
+				var $obj = $(":checkbox"); // 数组，有三个对象
+				for(var i = 0 ; i < $obj.length ; i ++){
+					var dom = $obj[i];
+					// alert(dom.value);
+					// 使用jquery的val函数，获取value的值
+					// 1.需要jquery对象
+					var $jObj = $(dom) // $jObj是jquery对象
+					// 2.调用jquery函数
+					alert("jquery的函数调用=" + $jObj.val());
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<input type="text" value="我是type类型为text"></br>
+		<input type="radio" value="man" /> 男 <br>
+		<input type="radio" value="woman" /> 女 </br>
+		<input type="checkbox" value="bike"/> 骑行 </br>
+		<input type="checkbox" value="football"> 足球 <br>
+		<input type="checkbox" value="music"> 音乐 <br>
+		<br>
+		<input type="button" value="读取text的值" onclick="fun1()"><br>
+		<input type="button" value="读取radio的值" onclick="fun2()"> <br>
+		<input type="button" value="读取checkbox的值" onclick="fun3()">
+	</body>
+</html>

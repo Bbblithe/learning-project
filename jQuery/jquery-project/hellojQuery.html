@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>第一个例子</title>
+		<!--指定jquery的库文件位置，使用相对路径，当前项目的js目录下的指定文件-->
+		<script type="text/javascript" src="js/jquery-3.4.1.js"></script>
+		<script type="text/javascript">
+			/*
+				1. &(document) , $是jQuery中的函数名称，document是函数的参数
+				作用是 document对象变成 jQuery函数库可以使用的对象。
+
+				2. ready 是jQuery中的函数，是准备的意思，当页面的dom对象加载成功后
+				会执行ready函数的内容。 ready 相当于js中的onload事件
+
+				3.function()自定义的表示onload后要执行的功能。
+			*/
+			// $(document).ready(function(){
+			// 	// 自定义的功能代码
+			// 	alert("Hello jQuery");
+			// })
+
+			$(function() {
+				// 代码内容
+				alert("Hello jQuery 快捷方式");
+			})
+
+		</script>
+	</head>
+	<body>
+		
+	</body>
+</html>

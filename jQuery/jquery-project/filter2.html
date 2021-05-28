@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript" src="js/jquery-3.4.1.js"></script>
+		<script type="text/javascript">
+			$(function(){
+				$("#btn1").click(function(){
+					// 获取所有可以使用的text
+					var $obj = $(":text:enabled");
+					// 设置jquery数组中所有的dom对象的value值
+					$obj.val("hello")
+				})
+
+				$("#btn2").click(function(){
+					var $obj = $(":checkbox:checked");
+					for(var i = 0 ; i < $obj.length ; i ++){
+						// alert($obj[i].value);
+						alert($($obj[i]).val());
+					}
+				})
+
+				$("#btn3").click(function(){
+					// 获取select选中的值
+					// var $obj = $("select>option:selected");
+					var $obj = $("#language>option:selected")
+					alert($obj.val());
+				})
+			})
+		</script>
+	</head>
+	<body>
+		<input type="text" id="txt1" value="text1"><br>
+		<input type="text" id="txt2" value="text2" disabled="true"><br>
+		<input type="text" id="txt3" value="text3"><br>
+		<input type="text" id="txt4" value="text4" disabled><br>
+		<br> 
+
+		<input type="checkbox" value="游泳">游泳 <br>
+		<input type="checkbox" value="健身" checked="true">健身 <br>
+		<input type="checkbox" value="电子游戏" checked>电子游戏 <br>
+		<br>
+
+		<select id="language">
+			<option value="java">java语言</option>
+			<option value="go" selected="true">go语言</option>
+			<option value="python">python语言</option>
+		</select>
+		<br>
+
+		<input type="button" value="设置可用的text的value是hello" id="btn1">
+		<br>
+		<button id="btn2">显示选中的复选框的值</button>
+		<br>
+		<button id="btn3">显示下拉列表框的值</button>
+	</body>
+</html>
