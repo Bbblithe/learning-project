@@ -52,7 +52,7 @@ public class Queue {
       return nItems;
    }
 
-   public void show(){
+   public void display(){
       int i;
       if(rear > front){
          for(i = front ; i <= rear ; i++){

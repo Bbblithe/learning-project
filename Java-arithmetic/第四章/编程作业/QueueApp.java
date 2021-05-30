@@ -25,7 +25,7 @@ class QueueApp {
       theQueue.insert(70);
       theQueue.insert(80);
 
-      theQueue.show();
+      theQueue.display();
       System.out.println("===========");
 
       while ( !theQueue.isEmpty() ) {
