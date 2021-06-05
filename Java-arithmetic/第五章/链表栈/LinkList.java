@@ -1,8 +1,8 @@
-package 第五章.单链表;
+package 第五章.链表栈;
 
 /**
  * Author:  blithe.xwj
- * Date:    2021/6/2 22:56
+ * Date:    2021/6/4 20:14
  * Description:
  */
 
@@ -10,30 +10,29 @@ package 第五章.单链表;
 class LinkList {
    private Link first;
 
-   public void LinkList(){
+   public LinkList(){
       first = null;
    }
 
    public boolean isEmpty(){
-      return (first == null);
+      return first == null;
    }
 
-   public void insertFirst(int id, double dd){
-      Link newLink = new Link(id,dd);
+   public void insertFirst(long dd){
+      Link newLink = new Link(dd);
       newLink.next = first;
       first = newLink;
    }
 
-   public Link deleteFirst(){
-      Link temp = first ;
+   public long deleteFirst(){
+      Link temp = first;
       first = first.next;
-      return temp;
+      return temp.dData;
    }
 
    public void displayList(){
-      System.out.print("List (first-->last): ");
       Link current = first;
-      while(current != null ){
+      while(current != null){
          current.displayLink();
          current = current.next;
       }

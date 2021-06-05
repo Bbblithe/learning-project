@@ -1,4 +1,4 @@
-package 第五章.单链表;
+package 第五章.单端链表;
 
 /**
  * Author:  blithe.xwj
