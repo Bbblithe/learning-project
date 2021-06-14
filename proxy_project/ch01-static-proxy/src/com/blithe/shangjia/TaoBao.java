@@ -1,5 +1,6 @@
 package com.blithe.shangjia;
 
+import com.blithe.factory.UsbKingFactory;
 import com.blithe.service.UsbSell;
 
 /**
@@ -8,11 +9,23 @@ import com.blithe.service.UsbSell;
  * Description:
  */
 // taobao是一个商家，代理金士顿u盘的销售。
-class TaoBao implements UsbSell {
+public class TaoBao implements UsbSell {
 
-   @Override
-   // 实现销售u盘的功能
-   public float sell(int amount){
-      return 0;
-   }
+    // 声明 商家代理的厂家具体是谁
+    private UsbKingFactory factory = new UsbKingFactory();
+
+    @Override
+    // 实现销售u盘的功能
+    public float sell(int amount){
+
+        // 向厂家发送订单，告诉厂家，我买了u盘，厂家发货
+        float price = factory.sell(amount); // 厂家的价格
+        // 商家 需要加价，也就是代理要增加价格。
+        price += 25; // 增强功能，代理类在完成目标类方法调用后，增强了功能。
+        // 在目标类的方法调用后，你做的其他功能，都是增强的意思。
+        System.out.println("淘宝商家，给你反一个优惠卷，或者红包");
+
+        // 增加的价格
+        return price;
+    }
 }
