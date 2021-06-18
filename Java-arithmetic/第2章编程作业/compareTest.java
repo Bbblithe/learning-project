@@ -10,6 +10,7 @@ import java.util.Date;
 
 
 class compareTest {
+
       public static void main(String[] args) {
       int maxSize = 100001;
       OrdArray arr;

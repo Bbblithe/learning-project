@@ -17,7 +17,8 @@ class OrderedApp {
 
         Date start = new Date();
         for (int i = 0; i <= 100000; i++) {
-            arr.insert((int) (0 + Math.random() * 10000));
+            int result = (int) (0 + Math.random() * 10000);
+            arr.insert(result);
         }
 
         Date end = new Date();
