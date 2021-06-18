@@ -57,7 +57,6 @@ class Deque {
    }
 
    /**
-    *
     * @return if empty return true,else return false
     */
    public boolean isEmpty(){
