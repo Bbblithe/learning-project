@@ -27,6 +27,10 @@ class CircularLinkListApp {
       list.step();
       list.insert(666);
       list.insert(222);
+      list.displayList();
+      list.delete();
+      list.delete();
+      list.delete();
 
       list.displayList();
    }

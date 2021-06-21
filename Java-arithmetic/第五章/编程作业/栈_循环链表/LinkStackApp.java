@@ -1,15 +1,15 @@
-package 第四章.栈;
+package 第五章.编程作业.栈_循环链表;
 
 /**
  * Author:  blithe.xwj
- * Date:    2021/5/7 21:46
+ * Date:    2021/6/21 16:39
  * Description:
  */
 
 
-class StackXApp {
-   public static void main(String[] args){
-      StackX theStack = new StackX(10);
+class LinkStackApp {
+   public static void main(String[] args) {
+      Stack theStack = new Stack();
 
       theStack.push(20);
       theStack.push(40);
@@ -29,6 +29,5 @@ class StackXApp {
          long value = theStack.pop();
          System.out.println(value);
       }
-
    }
 }

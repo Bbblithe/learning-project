@@ -1,4 +1,4 @@
-package 第五章.编程作业.循环链表;
+package 第五章.编程作业.栈_循环链表;
 
 /**
  * Author:  blithe.xwj
@@ -11,46 +11,19 @@ class CircularLinkList {
    private Link current;
 
    public CircularLinkList(){
-      current = null;
+      current = new Link(0);
+      current.next = current;
    }
 
    public void insert(long dd){
       Link newLink = new Link(dd);
-      if(current == null){
-         current = newLink;
-      }else {
-         newLink.next = current.next;
-      }
+      newLink.next = current.next;
       current.next = newLink;
-   }
-
-   public Link find(long key){
-      Link temp = current;
-      do{
-         if(current.dData == key){
-            break;
-         }
-         current = current.next;
-      }while( temp!= current);
-//      while (current.dData != key && i != 1) {
-//         if(temp == current){
-//            i ++;
-//         }
-//         if(i == 1){
-//            break;
-//         }
-//         current = current.next;
-//      }
-      if(current.dData == key){
-         return current;
-      }else{
-         return null;
-      }
    }
 
    public Link delete(){
       Link temp = current;
-      Link previous = null;
+      Link previous;
       while(current.next != temp){
          current = current.next;
       }
@@ -77,5 +50,32 @@ class CircularLinkList {
 
    public void step(){
       current = current.next;
+   }
+
+   public Link peek(){
+      return current;
+   }
+
+   public boolean isEmpty(){
+      return current == null;
+   }
+
+   public Link getPrevious(){
+      Link temp = current;
+      Link previous = null;
+      while(current.next != temp){
+         current = current.next;
+      }
+      previous = current;
+      current = current.next;
+      return previous;
+   }
+
+   public Link getCurrent() {
+      return current;
+   }
+
+   public void setCurrent(Link current) {
+      this.current = current;
    }
 }
