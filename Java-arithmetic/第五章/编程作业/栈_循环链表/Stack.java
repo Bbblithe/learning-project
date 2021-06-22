@@ -2,42 +2,31 @@ package 第五章.编程作业.栈_循环链表;
 
 /**
  * Author:  blithe.xwj
- * Date:    2021/6/20 20:53
+ * Date:    2021/6/22 09:21
  * Description:
  */
 
 
-class Stack {
-   private CircularLinkList Stack;
-   private int top = -1;
-   private boolean flag = true;
+class Stack{
+   private CircularLinkList theList;
 
    public Stack(){
-      Stack = new CircularLinkList();
+      theList = new CircularLinkList();
    }
-
-   public void push(long value){
-      top++;
-      Stack.insert(value);
+   public void push(long dd){
+      theList.insertFirst(dd);
    }
 
    public long pop(){
-      if(flag) {
-         Stack.step();
-         flag = false;
-      }
-      top--;
-      if(top == -2){
-         Stack.setCurrent(Stack.getPrevious());
-      }
-      return Stack.delete().dData;
-   }
-
-   public long peek(){
-      return Stack.peek().dData;
+      return theList.deleteFirst().dData;
    }
 
    public boolean isEmpty(){
-      return top==-1;
+      return theList.isEmpty();
+   }
+
+   public void displayStack() {
+      System.out.print("Stack (top-->bottom): ");
+      theList.displayList();
    }
 }
