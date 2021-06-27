@@ -1,4 +1,4 @@
-package 第六章.三角数字;
+package 第六章_递归.三角数字;
 
 import java.io.BufferedReader;
 import java.io.IOException;
