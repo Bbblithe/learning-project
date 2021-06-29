@@ -1,4 +1,4 @@
-package 第六章_递归.归并排序基础;
+package 第六章_递归.归并排序;
 
 /**
  * Author:  blithe.xwj
