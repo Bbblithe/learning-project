@@ -25,6 +25,7 @@ void showMenu(){
     cout << "0、退出通讯录" << endl;
 }
 
+// 1、添加联系人函数
 void addPerson(Address_list* adl){
     // 判断通讯录是否已满，如果满了就不再添加
     if(adl->count == MAX){
@@ -56,6 +57,61 @@ void addPerson(Address_list* adl){
     cout << "添加信息成功！" << endl;
 }
 
+// 2、显示所有联系人函数
+void showPerson(Address_list* adl){
+    // 判断通讯录中人数是否为0，如果是0，则提示空
+    if(!(adl->count)){
+        cout << "当前记录为空" << endl;
+    }else{
+        for(int i = 0 ; i < adl->count ; i ++){
+            cout << "姓名：" << adl->contacts[i].name << " 性别：" << (adl->contacts[i].sex?"男":"女")
+            << " 年龄：" << adl->contacts[i].age << " 电话：" << adl->contacts[i].number << " 住址：" << 
+            adl->contacts[i].address << endl ;
+        }
+    }
+}
+
+// 检测联系人是否存在，如果存在，返回联系人在数组中具体的位置，不存在则返回-1
+int isExist(Address_list* adl,string name){ // 参数1:通讯录， 参数2:名字
+    for(int i = 0 ; i < adl->count ; i++){
+        if(adl->contacts[i].name == name){
+            return i;
+        }
+    }
+    return -1; // 如果遍历结束都没有找到
+}
+
+// 3、删除联系人函数
+void deletePerson(Address_list* adl){
+    string name;
+    cout << "输入删除联系人姓名：" ;
+    cin >> name;
+    int res = isExist(adl,name);
+    if( res == -1) {
+        cout << "查无此人！" << endl;
+    }else{
+        for(int i = res ; i < adl->count ; i ++){
+            adl->contacts[i] = adl->contacts[i+1];
+        }
+        adl->count--;
+        cout << name << "删除成功！" << endl;
+    }
+}
+
+void findPerson(Address_list* adl){
+    string name;
+    cout << "请输入查找的联系人姓名：" ;
+    cin >> name;
+    int res = isExist(adl,name);
+    if(res == -1){
+        cout << "查无此人！" << endl;
+    }else{
+        cout << "姓名：" << adl->contacts[res].name << " 性别：" << (adl->contacts[res].sex?"男":"女")
+        << " 年龄：" << adl->contacts[res].age << " 电话：" << adl->contacts[res].number << " 住址：" << 
+        adl->contacts[res].address << endl ;
+    }
+}
+
 int main(){
     Address_list AddressBook;
     AddressBook.count = 0;
@@ -72,10 +128,13 @@ int main(){
                 addPerson(&AddressBook);
                 break;
             case 2: // 显示联系人
+                showPerson(&AddressBook);
                 break;
             case 3: // 删除联系人
+                deletePerson(&AddressBook);
                 break;
             case 4: // 查找联系人
+                findPerson(&AddressBook);
                 break;
             case 5: // 清空联系人
                 break; 
