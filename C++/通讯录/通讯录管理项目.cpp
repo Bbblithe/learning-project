@@ -98,6 +98,7 @@ void deletePerson(Address_list* adl){
     }
 }
 
+// 4、查找联系人函数
 void findPerson(Address_list* adl){
     string name;
     cout << "请输入查找的联系人姓名：" ;
@@ -112,6 +113,44 @@ void findPerson(Address_list* adl){
     }
 }
 
+// 5、清空联系人函数
+void clearBook(Address_list* adl){
+    adl->count = 0; // 将档期记录联系人数量置为0，做逻辑清空！
+    cout << "通讯录已清空！" << endl;
+}
+
+// 6、删除联系人函数
+void modifyPerson(Address_list* adl){
+    cout << "请输入您要修改的联系人：" ;
+    string name;
+    cin >> name;
+    int res = isExist(adl,name);
+    if(res == -1){
+        cout << "该联系人不存在！" << endl;
+        return ;
+    }
+    cout << "请输入联系人姓名:" ;
+    cin >> adl->contacts[res].name;
+
+    // 性别
+    cout << "请输入性别(真代表男，假代表女):" ;
+    cin >> adl->contacts[res].sex;
+
+    // 年龄
+    cout << "请输入年龄:" ;
+    cin >> adl->contacts[res].age; 
+
+    // 电话
+    cout << "请输入联系电话：" ;
+    cin >> adl->contacts[res].number;
+
+    // 住址1
+    cout << "请输入家庭住址：" ;
+    cin >> adl->contacts[res].address;
+
+    system("clear");
+    cout << "修改信息成功！" << endl;
+}
 int main(){
     Address_list AddressBook;
     AddressBook.count = 0;
@@ -137,8 +176,10 @@ int main(){
                 findPerson(&AddressBook);
                 break;
             case 5: // 清空联系人
+                clearBook(&AddressBook);
                 break; 
             case 6: // 修改联系人
+                modifyPerson(&AddressBook);
                 break;
             case 0: // 退出通讯录
                 cout << "已退出，欢迎下次使用" << endl; 
