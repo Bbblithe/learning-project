@@ -52,6 +52,8 @@ under the License.
    | Default: ${user.home}/.m2/repository
   <localRepository>/path/to/local/repo</localRepository>
   -->
+  <!--配置本地仓库位置-->
+  <localRepository>/Users/xuwenjie/Downloads/learning_code/four_part/Maven/repository</localRepository>
 
   <!-- interactiveMode
    | This will determine whether maven prompts you when it needs input. If set to false,
@@ -156,12 +158,20 @@ under the License.
       <url>http://my.repository.com/repo/path</url>
     </mirror>
      -->
+    <!--
     <mirror>
       <id>maven-default-http-blocker</id>
       <mirrorOf>external:http:*</mirrorOf>
       <name>Pseudo repository to mirror external repositories initially using HTTP.</name>
       <url>http://0.0.0.0/</url>
       <blocked>true</blocked>
+    </mirror>
+    -->
+    <mirror>
+        <id>nexus-aliyun</id>
+      <mirrorOf>*</mirrorOf>
+      <name>Nexus aliyun</name>
+      <url>http://maven.aliyun.com/nexus/content/groups/public</url>
     </mirror>
   </mirrors>
 
@@ -251,6 +261,18 @@ under the License.
       </properties>
     </profile>
     -->
+    <profile>  
+       <id>jdk-1.5</id>  
+       <activation>  
+           <activeByDefault>true</activeByDefault>  
+           <jdk>1.5</jdk>  
+       </activation>
+       <properties>
+           <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+           <maven.compiler.source>15</maven.compiler.source>  
+           <maven.compiler.target>15</maven.compiler.target>   
+       </properties>   
+    </profile>  
   </profiles>
 
   <!-- activeProfiles

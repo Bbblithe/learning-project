@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>com.wkcto</groupId>
+  <artifactId>ch01-maven-quickstart</artifactId>
+  <version>1.0</version>
+  <packaging>jar</packaging>
+
+
+
+  <!--全局变量-->
+  <properties>
+    <!--项目的编码是utf-8-->
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <!--你的项目是在jdk1.8上编译-->
+    <maven.compiler.source>1.8</maven.compiler.source>
+    <!--你项目应该运行在1.8的jdk上-->
+    <maven.compiler.target>1.8</maven.compiler.target>
+  </properties>
+
+  <!--依赖：多个配置-->
+  <dependencies>
+    <!--junit依赖-->
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>4.11</version>
+      <scope>test</scope>
+    </dependency>
+    <!--其他依赖-->
+  </dependencies>
+
+  <build>
+    <!--设置maven构建项目的插件参数-->
+    <!--删掉插件的说明：就是使用默认的配置-->
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.8.0</version>
+        <configuration>
+          <source>1.8</source>
+          <target>1.8</target>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+</project>

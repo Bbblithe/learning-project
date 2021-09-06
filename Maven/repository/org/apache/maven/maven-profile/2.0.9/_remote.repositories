@@ -1,0 +1,6 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Thu Sep 02 16:28:28 CST 2021
+maven-profile-2.0.9.pom>nexus-aliyun=
+maven-profile-2.0.9.jar>central=
+maven-profile-2.0.9.jar>nexus-aliyun=
+maven-profile-2.0.9.pom>central=
