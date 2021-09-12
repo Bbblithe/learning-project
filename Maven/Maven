@@ -142,3 +142,18 @@ maven
   			<version>自定版本号</version>
 
   		https://mvnrepository.com 搜索使用的中央仓库，使用groupID 或者artofactId作为搜索条件
+
+  		2）packaging：打包后压缩文件的拓展名，默认是jar，web应用是war
+  		packaging ，可以不写 默认是jar
+
+  		3）依赖:dependendies 和dependency ， 相当于是java代码中的import
+  		你的项目中要使用的各种资源说明，比如我的项目中要使用mysql驱动
+
+  		4）properties：设置属性
+
+  		5）build：maven在进行项目的构建时，配件信息，例如编译java代码使用的jdk的版本
+
+  	5.maven声明周期，maven的命令，maven的插件
+  		maven的生命周期：就是maven的构建项目的过程，清理，编译，测试，报告，打包，安装，部署。
+  		maven的命令：maven独立使用，通过命令，完成maven生命周期的执行。maven可以使用命令，完成项目的清理，编译，测试等等
+  		maven的插件：maven命令执行时，真正完成功能的是插件，插件就是一些jar文件，一些类。
