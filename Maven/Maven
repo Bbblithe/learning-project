@@ -157,3 +157,40 @@ maven
   		maven的生命周期：就是maven的构建项目的过程，清理，编译，测试，报告，打包，安装，部署。
   		maven的命令：maven独立使用，通过命令，完成maven生命周期的执行。maven可以使用命令，完成项目的清理，编译，测试等等
   		maven的插件：maven命令执行时，真正完成功能的是插件，插件就是一些jar文件，一些类。
+
+  		1）单元测试（测试方法）：用的是junit ，junit谁一个专门测试的框架（工具）。
+  			junit测试的内容：测试的是类中的方法，每一方法都是独立测试的。
+  			方法是测试的基本单元（单元）。
+
+  			maven借助单元测试，批量的测试你类中的大量方法是否符合预期的。
+  		2）使用步骤：
+  			* 加入依赖，在pom.xml加入单元测试依赖
+  			<!-- https://mvnrepository.com/artifact/junit/junit -->
+			<dependency>
+			    <groupId>junit</groupId>
+			    <artifactId>junit</artifactId>
+			    <version>4.12</version>
+			    <scope>test</scope>
+			</dependency>
+
+			* 在maven项目中的src/test/java目录下，创建测试程序。
+				推荐的创建类和方法的提示：
+					- 测试类的名称 是Test + 你要测试的类名
+					- 测试点的方法名称是Test + 方法名称
+
+				例如你要测试HelloMaven：
+					创建测试类TestHelloMaven
+					@Test
+					public void testAdd(){
+						测试HelloMaven的add方法是否正确
+					}
+
+					其中testAdd叫做测试方法，它的定义规则：
+						# 方法是public，必须
+						# 方法没有返回值，必须
+						# 方法名称是自定义的 -> Test + 方法名称，推荐
+						# 在方法的上面加入 @Test
+
+		3) mvn comfile
+			编译main/java/目录下的java 为class文件，同时把class拷贝到target/class目录下面，把main/resource目录下的所有文件都拷贝到target/classes目录下
+

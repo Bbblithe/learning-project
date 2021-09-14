@@ -1,4 +1,6 @@
-#NOTE: This is an Aether internal implementation file, its format can be changed without prior notice.
-#Tue Jan 15 22:20:25 CST 2019
-maven-surefire-plugin-2.12.4.jar>central=
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Tue Sep 14 21:28:46 CST 2021
 maven-surefire-plugin-2.12.4.pom>central=
+maven-surefire-plugin-2.12.4.pom>nexus-aliyun=
+maven-surefire-plugin-2.12.4.jar>nexus-aliyun=
+maven-surefire-plugin-2.12.4.jar>central=

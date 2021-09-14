@@ -1,4 +1,6 @@
-#NOTE: This is an Aether internal implementation file, its format can be changed without prior notice.
-#Tue Jan 15 22:22:49 CST 2019
-plexus-io-2.0.2.jar>central=
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Tue Sep 14 21:37:39 CST 2021
+plexus-io-2.0.2.pom>nexus-aliyun=
+plexus-io-2.0.2.jar>nexus-aliyun=
 plexus-io-2.0.2.pom>central=
+plexus-io-2.0.2.jar>central=

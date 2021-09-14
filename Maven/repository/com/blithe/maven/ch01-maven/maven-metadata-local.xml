@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+  <groupId>com.blithe.maven</groupId>
+  <artifactId>ch01-maven</artifactId>
+  <versioning>
+    <versions>
+      <version>1.0-SNAPSHOT</version>
+    </versions>
+    <lastUpdated>20210914133925</lastUpdated>
+  </versioning>
+</metadata>
