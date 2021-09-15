@@ -1,4 +1,4 @@
-package 第五章.编程作业.优先级队列;
+package 第五章_链表.编程作业.优先级队列;
 
 /**
  * Author:  blithe.xwj

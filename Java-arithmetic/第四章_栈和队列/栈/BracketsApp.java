@@ -1,8 +1,8 @@
-package 第四章.栈;
+package 第四章_栈和队列.栈;
 
 import java.io.IOException;
 
-import static 第四章.栈.StackYApp.getString;
+import static 第四章_栈和队列.栈.StackYApp.getString;
 
 /**
  * Author:  blithe.xwj

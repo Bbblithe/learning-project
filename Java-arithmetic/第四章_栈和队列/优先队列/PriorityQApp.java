@@ -1,4 +1,4 @@
-package 第四章.优先队列;
+package 第四章_栈和队列.优先队列;
 
 /**
  * Author:  blithe.xwj

@@ -1,4 +1,4 @@
-package 第五章.有序链表;
+package 第五章_链表.有序链表;
 
 /**
  * Author:  blithe.xwj

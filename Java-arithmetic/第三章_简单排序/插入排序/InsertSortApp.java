@@ -1,4 +1,4 @@
-package 第三章.插入排序;
+package 第三章_简单排序.插入排序;
 
 /**
  * Author:  blithe.xwj

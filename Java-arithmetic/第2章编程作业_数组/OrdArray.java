@@ -1,4 +1,4 @@
-package 第2章编程作业;
+package 第2章编程作业_数组;
 
 /**
  * Author:  blithe.xwj

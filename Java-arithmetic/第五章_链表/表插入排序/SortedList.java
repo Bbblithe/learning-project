@@ -1,4 +1,4 @@
-package 第五章.表插入排序;
+package 第五章_链表.表插入排序;
 
 /**
  * Author:  blithe.xwj

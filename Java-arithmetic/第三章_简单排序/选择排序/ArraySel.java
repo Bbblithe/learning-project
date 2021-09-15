@@ -1,4 +1,4 @@
-package 第三章.选择排序;
+package 第三章_简单排序.选择排序;
 
 /**
  * Author:  blithe.xwj

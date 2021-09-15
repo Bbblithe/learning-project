@@ -1,4 +1,4 @@
-package 第四章.栈;
+package 第四章_栈和队列.栈;
 
 /**
  * Author:  blithe.xwj

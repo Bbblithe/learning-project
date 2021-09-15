@@ -1,4 +1,4 @@
-package 第四章.后缀表达式.计算后缀表达式;
+package 第四章_栈和队列.后缀表达式.计算后缀表达式;
 
 /**
  * Author:  blithe.xwj

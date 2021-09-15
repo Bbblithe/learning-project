@@ -1,4 +1,4 @@
-package 第五章.链表迭代器;
+package 第五章_链表.链表迭代器;
 
 /**
  * Author:  blithe.xwj

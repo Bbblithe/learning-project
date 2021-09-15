@@ -1,4 +1,4 @@
-package 第四章.后缀表达式.中转后缀表达式;
+package 第四章_栈和队列.后缀表达式.中转后缀表达式;
 
 import java.io.BufferedReader;
 import java.io.IOException;

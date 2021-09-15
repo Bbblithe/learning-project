@@ -1,4 +1,4 @@
-package 第五章.双向链表;
+package 第五章_链表.双向链表;
 
 /**
  * Author:  blithe.xwj

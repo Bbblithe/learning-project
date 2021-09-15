@@ -1,4 +1,4 @@
-package 第三章.对象排序;
+package 第三章_简单排序.对象排序;
 
 /**
  * Author:  blithe.xwj

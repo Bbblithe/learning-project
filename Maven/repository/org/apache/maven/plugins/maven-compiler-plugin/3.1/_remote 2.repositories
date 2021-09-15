@@ -1,0 +1,6 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Thu Sep 02 16:27:54 CST 2021
+maven-compiler-plugin-3.1.jar>nexus-aliyun=
+maven-compiler-plugin-3.1.jar>central=
+maven-compiler-plugin-3.1.pom>central=
+maven-compiler-plugin-3.1.pom>nexus-aliyun=

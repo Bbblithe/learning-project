@@ -1,4 +1,4 @@
-package 第五章.编程作业.栈_循环链表;
+package 第五章_链表.编程作业.栈_循环链表;
 
 /**
  * Author:  blithe.xwj

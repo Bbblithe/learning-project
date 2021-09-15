@@ -1,4 +1,4 @@
-package 第四章.编程作业;
+package 第四章_栈和队列.编程作业;
 
 /**
  * Author:  blithe.xwj
