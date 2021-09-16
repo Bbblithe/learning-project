@@ -194,3 +194,49 @@ maven
 		3) mvn comfile
 			编译main/java/目录下的java 为class文件，同时把class拷贝到target/class目录下面，把main/resource目录下的所有文件都拷贝到target/classes目录下
 
+第三部分：
+	1.在idea中设置maven，让idea和maven结合使用。idea中内置了maven，一般不使用内置的，因为用内置修改maven的设置不方便。
+	使用自己安装的maven，需要覆盖idea中的默认的设置。让idea知道maven安装位置信息。
+
+	配置的入口 Intellij IDEA --- Perferences --- Build,Execution,Deployment 
+	--- Build Tools --- Maven：
+		Maven Home directory:maven的安装目录
+		User Setting File: 就是maven安装目录conf/setting.xml 配置文件
+		Local repository: 本机仓库位置
+
+	---	Build Tools --- Maven --- Runner
+		VM Options : -DarchetypeCatalog=inernal  // 意义：maven项目创建时，会联网下载模版文件，比较大，使用 arch....ernal指令可以不用下载，创建maven项目速度很慢
+		JRE:你项目的jdk
+
+	2.使用模版创建项目
+		1）maven-archetype-quickstart : 普通的java项目
+		2）maven-archetype-webapp : web工程
+
+第四部分：
+	1.依赖范围，使用scope表示的。
+		scope的值有 compile ，test ， provided
+		默认是compile
+		scope：表示依赖使用的范围，也就是在maven构建项目的不同阶段起作用。
+			maven构建项目   清理，编译，测试，打包，安装，部署 这些过程（阶段）
+
+		junit的范围是 test 
+		<dependency>
+	      <groupId>junit</groupId>
+	      <artifactId>junit</artifactId>
+	      <version>4.11</version>
+	      <scope>test</scope>
+	    </dependency>
+
+	    <dependency>
+	      <groupId>a</groupId>
+	      <artifactId>b</artifactId>  b.jar
+	      <version>4.1</version>
+	      <scope>compile</scope>
+	    </dependency>
+
+	    <dependency>
+	      <groupId>jakarta.servlet</groupId>
+	      <artifactId>jakarta.servlet-api</artifactId>
+	      <version>5.0.0</version>
+	      <scope>provided</scope> 提供者
+	    </dependency>
