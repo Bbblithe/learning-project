@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <!--自己项目坐标(gav)-->
+    <groupId>com.blithe</groupId>
+    <artifactId>ch01-javase-maven</artifactId>
+    <version>1.0</version>
+
+    <properties>
+        <!--maven构建项目使用的是utf-8 ， 避免中文的乱码-->
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <!--编译java代码使用的jdk版本-->
+        <maven.compiler.source>15</maven.compiler.source>
+        <!--你的java项目应该运行在什么样的jdk版本-->
+        <maven.compiler.target>15</maven.compiler.target>
+    </properties>
+
+    <!--依赖-->
+    <dependencies>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.11</version>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.12</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+</project>

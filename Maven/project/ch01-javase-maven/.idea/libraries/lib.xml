@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="lib">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/../ch02-web-maven/target/ch02-web-maven-1.0-SNAPSHOT/WEB-INF/lib/jsp-api-2.2.1-b03.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../ch02-web-maven/target/ch02-web-maven-1.0-SNAPSHOT/WEB-INF/lib/jstl-1.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../ch02-web-maven/target/ch02-web-maven-1.0-SNAPSHOT/WEB-INF/lib/javax.servlet-api-3.1.0.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
