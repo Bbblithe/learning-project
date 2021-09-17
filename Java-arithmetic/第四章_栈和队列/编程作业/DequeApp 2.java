@@ -1,16 +1,15 @@
-package 第五章_链表.编程作业.双端队列;
-
+package 第四章_栈和队列.编程作业;
 
 /**
  * Author:  blithe.xwj
- * Date:    2021/6/18 16:15
+ * Date:    2021/5/30 21:30
  * Description:
  */
 
 
 class DequeApp {
    public static void main(String[] args) {
-      Deque doubleEndQueue = new Deque();
+      Deque doubleEndQueue = new Deque(5);
       doubleEndQueue.insertLeft(300);
       doubleEndQueue.insertLeft(400);
       doubleEndQueue.insertRight(10);
