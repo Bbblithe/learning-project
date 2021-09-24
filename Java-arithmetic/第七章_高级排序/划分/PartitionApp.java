@@ -9,7 +9,7 @@ package 第七章_高级排序.划分;
 
 class PartitionApp {
    public static void main(String[] args) {
-      int maxSize = 16;
+      int maxSize = 15;
       ArrayPar arr;
       arr = new ArrayPar(maxSize);
 

@@ -1,39 +1,26 @@
-package 第三章_简单排序.冒泡排序;
+package 第七章_高级排序.快速排序;
 
 import java.util.Date;
 
 /**
  * Author:  blithe.xwj
- * Date:    2021/5/6 21:58
+ * Date:    2021/9/24 14:15
  * Description:
  */
 
 
-class BubbleSortApp {
+class QuickSortApp {
    public static void main(String[] args){
       int maxSize = 100001;
-      ArrayBub arr;
-      arr = new ArrayBub(maxSize);
+      ArrayIns arr;
+      arr = new ArrayIns(maxSize);
 
       for(int j = 0 ; j < maxSize ; j ++){
          arr.insert((int)(Math.random()*10000));
       }
-
-//      arr.insert(77);
-//      arr.insert(99);
-//      arr.insert(44);
-//      arr.insert(55);
-//      arr.insert(22);
-//      arr.insert(88);
-//      arr.insert(11);
-//      arr.insert(00);
-//      arr.insert(66);
-//      arr.insert(33);
-
 //      arr.display();
-
       Date start = new Date();
-      arr.bubbleSort();
+      arr.quickSort();
       Date end = new Date();
 //      arr.display();
 

@@ -29,31 +29,31 @@ public class ArrayBub {
    }
 
    public void bubbleSort(){
-      int leftOut,rightOut,in;
-
-      // 双向移动
-      for(leftOut = 0,rightOut = nElems - 1 ; rightOut > 1 && leftOut < rightOut; leftOut ++ ,rightOut --){
-         for(in = leftOut ; in < rightOut ; in ++) {
-            if (a[in] > a[in + 1]) {
-               swap(in, in + 1);
-            }
-         }
-         for(in = rightOut - 1 ; in > leftOut ; in -- ){
-            if(a[in] < a[in - 1]) {
-               swap(in , in - 1);
-            }
-         }
-      }
-      // 单项移动
-//      int out,in;
+//      int leftOut,rightOut,in;
 //
-//      for(out = nElems - 1 ; out > 1 ; out --){
-//         for(in = 0 ; in < out ; in ++) {
+//      // 双向移动
+//      for(leftOut = 0,rightOut = nElems - 1 ; rightOut > 1 && leftOut < rightOut; leftOut ++ ,rightOut --){
+//         for(in = leftOut ; in < rightOut ; in ++) {
 //            if (a[in] > a[in + 1]) {
 //               swap(in, in + 1);
 //            }
 //         }
+//         for(in = rightOut - 1 ; in > leftOut ; in -- ){
+//            if(a[in] < a[in - 1]) {
+//               swap(in , in - 1);
+//            }
+//         }
 //      }
+      // 单项移动
+      int out,in;
+
+      for(out = nElems - 1 ; out > 1 ; out --){
+         for(in = 0 ; in < out ; in ++) {
+            if (a[in] > a[in + 1]) {
+               swap(in, in + 1);
+            }
+         }
+      }
    }
 
    public void oddEvenSort(){
