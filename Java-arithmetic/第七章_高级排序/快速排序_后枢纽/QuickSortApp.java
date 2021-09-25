@@ -1,4 +1,4 @@
-package 第七章_高级排序.快速排序;
+package 第七章_高级排序.快速排序_后枢纽;
 
 import java.util.Date;
 
@@ -11,7 +11,7 @@ import java.util.Date;
 
 class QuickSortApp {
    public static void main(String[] args){
-      int maxSize = 100001;
+      int maxSize = 5000;
       ArrayIns arr;
       arr = new ArrayIns(maxSize);
 

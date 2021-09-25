@@ -1,4 +1,4 @@
-package 第七章_高级排序.快速排序;
+package 第七章_高级排序.快速排序_后枢纽;
 
 /**
  * Author:  blithe.xwj
