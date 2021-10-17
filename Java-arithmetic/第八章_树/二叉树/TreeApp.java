@@ -29,7 +29,7 @@ class TreeApp {
       theTree.insert(97,1.5);
 
       while(true){
-         System.out.print("Enter first letter of show, insert, find, delete, or traverse: ");
+         System.out.print("Enter first letter of show, insert, find, delete, quit,or traverse: ");
          int choice = 0;
          try {
             choice = getChar();
@@ -94,6 +94,9 @@ class TreeApp {
                }
                theTree.traverse(value);
                break;
+            case 'q':
+               System.out.println("Goodbye! ...");
+               return ;
             default:
                System.out.print("Invalid entry\n");
          }
