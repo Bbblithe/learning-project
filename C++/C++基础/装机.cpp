@@ -100,18 +100,30 @@ public:
     }
 
     void work(){
-        cout << "开始工作" << endl;
+        cout << "开始工作-------------------" << endl;
         c->calculate();
         v->display();
         m->storage();
     }
 
     ~Computer(){
-        delete c;
-        delete v;
-        delete m;
+        if(c != NULL){
+            delete c;
+            c = NULL;
+        }
+
+        if(v != NULL){
+            delete v;
+            v = NULL;
+        }
+        
+        if(m != NULL){
+            delete m;
+            m = NULL;
+        }
     }
 
+private:                                                                       
     CPU* c;
     VideoCard* v;
     MemoryCard* m;    
@@ -127,14 +139,14 @@ void test01(){
     VideoCard* v = new GeForceCard();
     MemoryCard* m = new SumsonMemory();
     Computer* computer1 = makeComputer(c,v,m);
+    computer1->work();
+    delete computer1;
 
     c = new AMDCPU();
     v = new RainbowCard();
     m = new KingStonMemory();
     Computer* computer2 = makeComputer(c,v,m);
-    computer1->work();
     computer2->work();
-    delete computer1;
     delete computer2;
 }
 
