@@ -10,7 +10,7 @@ public:
     ~SeqList();
     int locate(DataType x);    //按值查找
     void Insert(int i, DataType x);  //插入操作，在第i个位置插入x
-    DataType Delete(int i);    //删除第i个元素
+    DataType Delete(int i);    //删 除第i个元素
     void PrintList();     //遍历操作函数
     DataType data[MaxSize];
     int length;
