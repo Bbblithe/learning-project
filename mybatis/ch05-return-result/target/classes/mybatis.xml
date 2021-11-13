@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?><!DOCTYPE configuration
+    PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <settings>
+        <setting name="logImpl" value="STDOUT_LOGGING" />
+    </settings>
+
+    <!--定义别名-->
+    <typeAliases>
+        <!--可以指定一个类型一个自定义名称
+            type:自定义类型的全限定名称
+            alias:别名（短小容易记得）
+        -->
+<!--        <typeAlias type="com.blithe.domain.Student" alias="stu"/>-->
+<!--        <typeAlias type="com.blithe.vo.ViewStudent" alias="vstu"/>-->
+        
+        <!--
+            第二种方式
+            <package> name是包名，这个包中的所有类，类名就是别名（类名不区分大小写）
+        -->
+        <package name="com.blithe.domain"/>
+        <package name="com.blithe.vo" />
+    </typeAliases>
+
+    <environments default="mydev">
+        <environment id="mydev">
+            <transactionManager type="JDBC" />
+            <dataSource type="POOLED">
+                <!--数据库的驱动类名-->
+                <property name="driver" value="com.mysql.jdbc.Driver" />
+                <!--连接数据库的url字符串-->
+                <property name="url"
+                    value="jdbc:mysql://localhost:3306/ssm?useUnicode=true&amp;characterEncoding=utf8" />
+                <property name="username" value="root" />
+                <property name="password" value="2015022136" />
+            </dataSource>
+        </environment>
+    </environments>
+
+    <mappers>
+        <mapper resource="com/blithe/dao/StudentDao.xml" />
+    </mappers>
+</configuration>

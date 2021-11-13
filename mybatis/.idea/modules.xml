@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/ch01-hello-mybatis/ch01-hello-mybatis.iml" filepath="$PROJECT_DIR$/ch01-hello-mybatis/ch01-hello-mybatis.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ch02-mybaits-dao/ch02-mybaits-dao.iml" filepath="$PROJECT_DIR$/ch02-mybaits-dao/ch02-mybaits-dao.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ch03-proxy-dao/ch03-proxy-dao.iml" filepath="$PROJECT_DIR$/ch03-proxy-dao/ch03-proxy-dao.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ch04-parameter/ch04-parameter.iml" filepath="$PROJECT_DIR$/ch04-parameter/ch04-parameter.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ch05-return-result/ch05-return-result.iml" filepath="$PROJECT_DIR$/ch05-return-result/ch05-return-result.iml" />
+    </modules>
+  </component>
+</project>
