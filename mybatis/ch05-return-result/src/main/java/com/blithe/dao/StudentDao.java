@@ -34,11 +34,4 @@ public interface StudentDao {
     List<Student> selectAllStudents();
 
     List<MyStudent> selectDiffColProperty ();
-
-    /*第一种模糊查询，在java代码指定 like的内容*/
-    List<Student> selectLikeOne(String name);
-
-    /* name就是"李"，在mapper中拼接 like "%" 李 "%" */
-    List<Student> selectLikeTwo(String name);
-
 }

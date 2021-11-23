@@ -88,28 +88,4 @@ public class TestMyBatis {
             System.out.println(stu);
         }
     }
-
-    @Test
-    public void TestSelectLikeOne(){
-        SqlSession sqlSession = MyBatisUtils.getSqlSession();
-        StudentDao dao = sqlSession.getMapper(StudentDao.class);
-        // 准备好like的内容
-        String name = "%李%";
-        List<Student> students = dao.selectLikeOne(name);
-        for(Student stu : students){
-            System.out.println(stu);
-        }
-    }
-
-    @Test
-    public void TestSelectLikeTwo(){
-        SqlSession sqlSession = MyBatisUtils.getSqlSession();
-        StudentDao dao = sqlSession.getMapper(StudentDao.class);
-        // 准备好like的内容
-        String name = "李";
-        List<Student> students = dao.selectLikeTwo(name);
-        for(Student stu : students){
-            System.out.println(stu);
-        }
-    }
 }

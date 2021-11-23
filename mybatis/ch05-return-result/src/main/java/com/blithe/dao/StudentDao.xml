@@ -58,14 +58,4 @@
     <select id="selectDiffColProperty" resultType="com.blithe.domain.MyStudent">
         select id stuId , name stuName , email stuEmail , age stuAge from student;
     </select>
-
-    <!--第一种like , java代码指定like的内容-->
-    <select id="selectLikeOne" resultType="com.blithe.domain.Student">
-        select id,name,email,age from student where name like #{name};
-    </select>
-
-    <!--第二种方式：在mapper文件中来拼接like的内容-->
-    <select id="selectLikeTwo" resultType="com.blithe.domain.Student">
-        select id,name,email,age from student where name like '%' #{name} '%'
-    </select>
 </mapper>
