@@ -35,8 +35,8 @@ class ArraySel {
             if(a[in] < a[min]){
                min = in;
             }
+            swap(out,min);
          }
-         swap(out,min);
       }
    }
 

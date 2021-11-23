@@ -11,7 +11,7 @@ import java.util.Date;
 
 class SelectSortApp {
     public static void main(String[] args) {
-        int maxSize = 10;
+        int maxSize = 100001;
         ArraySel arr;
         arr = new ArraySel(maxSize);
 
@@ -27,7 +27,7 @@ class SelectSortApp {
 //        arr.insert(33);
 
         for(int i = 0 ; i < maxSize ; i ++){
-            arr.insert((int)(Math.random()*100));
+            arr.insert((int)(Math.random()*10000));
         }
 
 //        arr.display();
@@ -35,7 +35,7 @@ class SelectSortApp {
         arr.selectionSort();
         Date end = new Date();
 
-        arr.display();
+//        arr.display();
 
         System.out.println("消耗时间:" + (end.getTime() - start.getTime()));
     }
