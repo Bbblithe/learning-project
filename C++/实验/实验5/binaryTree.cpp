@@ -211,7 +211,7 @@ int main(){
     BinaryTree<int> theTree;
     int number = 0;
     while(true){
-        cout << "请输入你要插入的数字,输入9999结束：";
+        cout << "input the number you need to insert with stopping insert by input 9999：";
         cin >> number ;
         if(number == 9999){
             break;
@@ -257,5 +257,6 @@ int main(){
                 break;
         }
     }
+
     return 0;
 }
