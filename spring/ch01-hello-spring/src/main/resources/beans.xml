@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:aop="http://www.springframework.org/schema/aop" xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/aop https://www.springframework.org/schema/aop/spring-aop.xsd">
+
+    <!--告诉spring创建对象
+        声明bean，就是告诉spring要创建某个类的对象
+        id：对象的自定义名称，唯一值。spring通过这个名称找到对象
+        class：类的权限定名称（不能是接口，因为spring是反射机制创建对象，必须使用类）
+
+        spring就完成 SomeService someService = new SomeService();
+        spring是把创建好的对象放入map中，spring框架有一个map用来存储对象。
+            springMap.put(id的值,对象);
+            例如：springMap.put("someService",new SomeServiceImpl());
+
+        一个bean标签声明一个java对象，
+    -->
+    <bean id="someService" class="com.blithe.impl.SomeServiceImpl"/>
+    <bean id="myAspect" class="com.blithe.MyAspect"/>
+
+<!--
+    spring能够创建一个非自定义类的对象吗，构建一个存在的某个类的对象
+-->
+    <aop:aspectj-autoproxy/>
+</beans>
+
+<!--
+    spring的配置文件
+    1.beans：是根标签，spring把java对象称为bean
+    2.spring-beans.xsd 是约束文件，和mybatis指定 dtd是一样的
+-->

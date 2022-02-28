@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="myStudent" class="com.blithe.ba02.Student">
+        <property name="age" value="19"/>
+        <property name="name" value="李佳燕" />
+        <property name="school" ref="mySchool"/>
+    </bean>
+
+    <!--声明school对象-->
+    <bean id="mySchool" class="com.blithe.ba02.School">
+        <property name="name" value="成都工业学院"/>
+        <property name="address" value="成都" />
+    </bean>
+
+</beans>
