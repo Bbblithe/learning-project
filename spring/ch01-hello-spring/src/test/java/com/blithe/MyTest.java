@@ -75,7 +75,7 @@ public class MyTest {
         String config = "beans.xml";
         ApplicationContext ac = new ClassPathXmlApplicationContext(config);
         SomeService proxy = (SomeService) ac.getBean("someService");
-        Student stu = proxy.doOther("徐文杰");
+        Student stu = proxy.doOther("blithe");
         System.out.println(stu);
     }
 }

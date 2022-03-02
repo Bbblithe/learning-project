@@ -6,10 +6,10 @@
 
     <!--把对象交给spring容器，由spring容器统一创建，管理对象-->
     <!--声明目标对象-->
-    <bean id="someService" class="com.blithe.ba02.SomeServiceImpl"/>
+    <bean id="someService" class="com.blithe.ba06.SomeServiceImpl"/>
 
     <!--声明切面类对象-->
-    <bean id="myAspect" class="com.blithe.ba02.MyAspect"/>
+    <bean id="myAspect" class="com.blithe.ba06.MyAspect"/>
 
     <!--
         声明自动代理生成器:使用aspectj框架内部的功能，创建目标对象的代理对象
@@ -18,5 +18,10 @@
 
         aspectj-autoproxy:会把spring容器中所有的目标对象，一次性都生成代理对象。
     -->
-    <aop:aspectj-autoproxy />
+<!--    <aop:aspectj-autoproxy />-->
+    <!--
+        如果你期望类有接口，仍然使用cglib代理
+        proxy-target-class = "true"：告诉框架使用cglib代理
+    -->
+    <aop:aspectj-autoproxy proxy-target-class="true"/>
 </beans>
