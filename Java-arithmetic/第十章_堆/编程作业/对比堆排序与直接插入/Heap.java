@@ -1,4 +1,4 @@
-package 第十章_堆.堆;
+package 第十章_堆.编程作业.对比堆排序与直接插入;
 
 /**
  * Author:  blithe.xwj
@@ -129,5 +129,15 @@ public class Heap {
         System.out.println("\n " + dots + dots);
     }
 
+    public void toss(Node newNode){
+        currentSize ++;
+        heapArray[currentSize-1] = newNode;
+    }
+
+    public void restoreHeap(){
+        for(int j = currentSize/2-1; j >= 0 ;j --){
+            this.trickleDown(j);
+        }
+    }
 
 }

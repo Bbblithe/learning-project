@@ -1,13 +1,13 @@
-package 第十章_堆.堆;
+package 第十章_堆.堆排序;
 
 /**
  * Author:  blithe.xwj
- * Date:    2022/3/6 16:05
+ * Date:    2022/3/8 19:49
  * Description:
  */
 
 
-public class Heap {
+class Heap {
     private Node[] heapArray;
     private int maxSize;
     private int currentSize;
@@ -18,20 +18,6 @@ public class Heap {
         heapArray = new Node[maxSize];
     }
 
-    public boolean isEmpty(){
-        return currentSize== 0;
-    }
-
-    public boolean insert(int key){
-        if(currentSize == maxSize){
-            return false;
-        }
-        Node newNode = new Node(key);
-        heapArray[currentSize] = newNode;
-        trickleUp(currentSize++);
-        return true;
-    }
-
     public Node remove(){
         Node root = heapArray[0];
         heapArray[0] = heapArray[--currentSize];
@@ -39,19 +25,7 @@ public class Heap {
         return root;
     }
 
-
-    private void trickleUp(int index) {
-        int parent = (index - 1)/2;
-        Node bottom = heapArray[index];
-        while(index > 0 && heapArray[parent].getKey() < bottom.getKey()){
-            heapArray[index] = heapArray[parent];
-            index = parent;
-            parent = (parent -1)/2;
-        }
-        heapArray[index] = bottom;
-    }
-
-    private void trickleDown(int index){
+    public void trickleDown(int index){
         int largerChild;
         Node top = heapArray[index];
         while(index < currentSize/2){
@@ -70,20 +44,6 @@ public class Heap {
             index = largerChild;
         }
         heapArray[index] = top;
-    }
-
-    public boolean change(int index,int newValue){
-        if(index < 0 || index >= currentSize){
-            return false;
-        }
-        int oldValue = heapArray[index].getKey();
-        heapArray[index].setKey(newValue);
-        if(oldValue < newValue){
-            trickleUp(index);
-        }else{
-            trickleDown(index);
-        }
-        return true;
     }
 
     public void displayHeap(){
@@ -129,5 +89,18 @@ public class Heap {
         System.out.println("\n " + dots + dots);
     }
 
+    public void displayArray(){
+        for(int i = 0 ; i < maxSize ; i ++){
+            System.out.print(heapArray[i].getKey() + " ");
+        }
+        System.out.println("");
+    }
 
+    public void insertAt(int index,Node newNode){
+        heapArray[index] = newNode;
+    }
+
+    public void incrementSize(){
+        currentSize++;
+    }
 }

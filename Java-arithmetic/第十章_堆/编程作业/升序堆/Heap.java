@@ -1,4 +1,4 @@
-package 第十章_堆.堆;
+package 第十章_堆.编程作业.升序堆;
 
 /**
  * Author:  blithe.xwj
@@ -43,7 +43,7 @@ public class Heap {
     private void trickleUp(int index) {
         int parent = (index - 1)/2;
         Node bottom = heapArray[index];
-        while(index > 0 && heapArray[parent].getKey() < bottom.getKey()){
+        while(index > 0 && heapArray[parent].getKey() > bottom.getKey()){
             heapArray[index] = heapArray[parent];
             index = parent;
             parent = (parent -1)/2;
@@ -52,22 +52,22 @@ public class Heap {
     }
 
     private void trickleDown(int index){
-        int largerChild;
+        int smallerChild;
         Node top = heapArray[index];
         while(index < currentSize/2){
             int leftChild = index*2 + 1;
             int rightChild = leftChild + 1;
 
             if(rightChild < currentSize && heapArray[leftChild].getKey() < heapArray[rightChild].getKey()){
-                largerChild = rightChild;
+                smallerChild = leftChild;
             }else{
-                largerChild = leftChild;
+                smallerChild = rightChild;
             }
-            if(top.getKey() >= heapArray[largerChild].getKey()){
+            if(top.getKey() <= heapArray[smallerChild].getKey()){
                 break;
             }
-            heapArray[index] = heapArray[largerChild];
-            index = largerChild;
+            heapArray[index] = heapArray[smallerChild];
+            index = smallerChild;
         }
         heapArray[index] = top;
     }
@@ -78,7 +78,7 @@ public class Heap {
         }
         int oldValue = heapArray[index].getKey();
         heapArray[index].setKey(newValue);
-        if(oldValue < newValue){
+        if(oldValue > newValue){
             trickleUp(index);
         }else{
             trickleDown(index);
