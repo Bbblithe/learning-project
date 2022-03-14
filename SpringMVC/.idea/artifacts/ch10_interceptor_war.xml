@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="ch10-interceptor:war">
+    <output-path>$PROJECT_DIR$/ch10-interceptor/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>ch10-interceptor</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="ch10-interceptor-1.0-SNAPSHOT.war">
+      <element id="artifact" artifact-name="ch10-interceptor:war exploded" />
+    </root>
+  </artifact>
+</component>

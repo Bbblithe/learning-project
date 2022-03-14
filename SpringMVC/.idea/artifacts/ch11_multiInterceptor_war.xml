@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="ch11-multiInterceptor:war">
+    <output-path>$PROJECT_DIR$/ch11-multiInterceptor/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>ch11-multiInterceptor</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="ch11-multiInterceptor-1.0-SNAPSHOT.war">
+      <element id="artifact" artifact-name="ch11-multiInterceptor:war exploded" />
+    </root>
+  </artifact>
+</component>
