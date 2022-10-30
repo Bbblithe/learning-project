@@ -1,6 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_6">
+  <component name="ExternalStorageConfigurationManager" enabled="true" />
+  <component name="MavenProjectsManager">
+    <option name="originalFiles">
+      <list>
+        <option value="$PROJECT_DIR$/_001-spring-pre/pom.xml" />
+        <option value="$PROJECT_DIR$/_002-springboot-first/pom.xml" />
+        <option value="$PROJECT_DIR$/_003-springboot-second/pom.xml" />
+        <option value="$PROJECT_DIR$/_005-springboot-mvc/pom.xml" />
+        <option value="$PROJECT_DIR$/_004-springboot-mvc/pom.xml" />
+        <option value="$PROJECT_DIR$/_005-springboot-enviroment/pom.xml" />
+        <option value="$PROJECT_DIR$/_006-springboot-multi-enviroment/pom.xml" />
+        <option value="$PROJECT_DIR$/_007-springboot-custom-yml/pom.xml" />
+        <option value="$PROJECT_DIR$/_008-springboot-jsp/pom.xml" />
+        <option value="$PROJECT_DIR$/_009-springboot-container/pom.xml" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/out" />
   </component>
 </project>
