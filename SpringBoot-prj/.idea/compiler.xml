@@ -7,13 +7,19 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="_002-springboot-first" />
-        <module name="_003-springboot-second" />
+        <module name="_010-springboot-commandlinerunner" />
+        <module name="_015-springboot-charactor-properties" />
         <module name="_005-springboot-enviroment" />
-        <module name="_007-springboot-custom-yml" />
+        <module name="_013-springboot-filter" />
         <module name="_009-springboot-container" />
-        <module name="_004-springboot-mvc" />
         <module name="_008-springboot-jsp" />
         <module name="_006-springboot-multi-enviroment" />
+        <module name="_011-springboot-interceptor" />
+        <module name="_012-springboot-servlet" />
+        <module name="_014-springboot-charactor-filter" />
+        <module name="_003-springboot-second" />
+        <module name="_007-springboot-custom-yml" />
+        <module name="_004-springboot-mvc" />
         <module name="_001-spring-pre" />
       </profile>
     </annotationProcessing>
@@ -28,6 +34,12 @@
       <module name="_007-springboot-custom-yml" options="-parameters" />
       <module name="_008-springboot-jsp" options="-parameters" />
       <module name="_009-springboot-container" options="-parameters" />
+      <module name="_010-springboot-commandlinerunner" options="-parameters" />
+      <module name="_011-springboot-interceptor" options="-parameters" />
+      <module name="_012-springboot-servlet" options="-parameters" />
+      <module name="_013-springboot-filter" options="-parameters" />
+      <module name="_014-springboot-charactor-filter" options="-parameters" />
+      <module name="_015-springboot-charactor-properties" options="-parameters" />
     </option>
   </component>
 </project>

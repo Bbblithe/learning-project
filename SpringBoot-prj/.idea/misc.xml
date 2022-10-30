@@ -14,6 +14,12 @@
         <option value="$PROJECT_DIR$/_007-springboot-custom-yml/pom.xml" />
         <option value="$PROJECT_DIR$/_008-springboot-jsp/pom.xml" />
         <option value="$PROJECT_DIR$/_009-springboot-container/pom.xml" />
+        <option value="$PROJECT_DIR$/_010-springboot-commandlinerunner/pom.xml" />
+        <option value="$PROJECT_DIR$/_011-springboot-interceptor/pom.xml" />
+        <option value="$PROJECT_DIR$/_012-springboot-servlet/pom.xml" />
+        <option value="$PROJECT_DIR$/_013-springboot-filter/pom.xml" />
+        <option value="$PROJECT_DIR$/_014-springboot-charactor-filter/pom.xml" />
+        <option value="$PROJECT_DIR$/_014-springboot-charactor-filter/_015-springboot-charactor-properties/pom.xml" />
       </list>
     </option>
   </component>
