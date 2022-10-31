@@ -20,6 +20,10 @@
         <option value="$PROJECT_DIR$/_013-springboot-filter/pom.xml" />
         <option value="$PROJECT_DIR$/_014-springboot-charactor-filter/pom.xml" />
         <option value="$PROJECT_DIR$/_014-springboot-charactor-filter/_015-springboot-charactor-properties/pom.xml" />
+        <option value="$PROJECT_DIR$/_016-springboot-mapper/pom.xml" />
+        <option value="$PROJECT_DIR$/_015-springboot-charactor-properties/pom.xml" />
+        <option value="$PROJECT_DIR$/_017-springboot-mapperscan/pom.xml" />
+        <option value="$PROJECT_DIR$/_018-springboot-transanctional/pom.xml" />
       </list>
     </option>
   </component>

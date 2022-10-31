@@ -19,6 +19,12 @@
     <file url="file://$PROJECT_DIR$/_013-springboot-filter/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/_014-springboot-charactor-filter/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/_015-springboot-charactor-properties/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/_015-springboot-charactor-properties/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/_016-springboot-mapper/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/_016-springboot-mapper/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/_017-springboot-mapperscan/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/_018-springboot-transacntional/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/_018-springboot-transanctional/src/main/java" charset="UTF-8" />
     <file url="PROJECT" charset="UTF-8" />
   </component>
 </project>
