@@ -23,6 +23,8 @@
         <module name="_017-springboot-mapperscan" />
         <module name="_007-springboot-custom-yml" />
         <module name="_004-springboot-mvc" />
+        <module name="_019-springboot-restful" />
+        <module name="_020-springboot-redis" />
         <module name="_001-spring-pre" />
       </profile>
     </annotationProcessing>
@@ -50,6 +52,8 @@
       <module name="_017-springboot-mapperscan" options="-parameters" />
       <module name="_018-springboot-transacntional" options="-parameters" />
       <module name="_018-springboot-transanctional" options="-parameters" />
+      <module name="_019-springboot-restful" options="-parameters" />
+      <module name="_020-springboot-redis" options="-parameters" />
     </option>
   </component>
 </project>
