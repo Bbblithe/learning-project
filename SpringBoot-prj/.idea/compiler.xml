@@ -7,27 +7,28 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="_018-springboot-transanctional" />
-        <module name="_002-springboot-first" />
-        <module name="_010-springboot-commandlinerunner" />
-        <module name="_024-consumer" />
+        <module name="_025-springboot-Jar" />
         <module name="_015-springboot-charactor-properties" />
-        <module name="_005-springboot-enviroment" />
         <module name="_013-springboot-filter" />
-        <module name="_024-springboot-war" />
-        <module name="_009-springboot-container" />
         <module name="_008-springboot-jsp" />
         <module name="_021-interface-api" />
-        <module name="_006-springboot-multi-enviroment" />
-        <module name="_011-springboot-interceptor" />
         <module name="_012-springboot-servlet" />
-        <module name="_014-springboot-charactor-filter" />
-        <module name="_003-springboot-second" />
         <module name="_016-springboot-mapper" />
         <module name="_017-springboot-mapperscan" />
         <module name="_022-service-provider" />
         <module name="_007-springboot-custom-yml" />
         <module name="_004-springboot-mvc" />
         <module name="_019-springboot-restful" />
+        <module name="_002-springboot-first" />
+        <module name="_010-springboot-commandlinerunner" />
+        <module name="_024-consumer" />
+        <module name="_005-springboot-enviroment" />
+        <module name="_024-springboot-war" />
+        <module name="_009-springboot-container" />
+        <module name="_006-springboot-multi-enviroment" />
+        <module name="_011-springboot-interceptor" />
+        <module name="_014-springboot-charactor-filter" />
+        <module name="_003-springboot-second" />
         <module name="_020-springboot-redis" />
         <module name="_001-spring-pre" />
       </profile>
@@ -61,6 +62,7 @@
       <module name="_022-service-provider" options="-parameters" />
       <module name="_024-consumer" options="-parameters" />
       <module name="_024-springboot-war" options="-parameters" />
+      <module name="_025-springboot-Jar" options="-parameters" />
     </option>
   </component>
 </project>
