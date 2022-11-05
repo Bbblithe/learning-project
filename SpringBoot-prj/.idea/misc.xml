@@ -26,6 +26,10 @@
         <option value="$PROJECT_DIR$/_018-springboot-transanctional/pom.xml" />
         <option value="$PROJECT_DIR$/_019-springboot-restful/pom.xml" />
         <option value="$PROJECT_DIR$/_020-springboot-redis/pom.xml" />
+        <option value="$PROJECT_DIR$/_021-interface-api/pom.xml" />
+        <option value="$PROJECT_DIR$/_022-service-provider/pom.xml" />
+        <option value="$PROJECT_DIR$/_024-consumer/pom.xml" />
+        <option value="$PROJECT_DIR$/_024-springboot-war/pom.xml" />
       </list>
     </option>
   </component>
