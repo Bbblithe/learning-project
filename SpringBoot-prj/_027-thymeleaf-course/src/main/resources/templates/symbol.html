@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>运算符</title>
+</head>
+<body>
+<div style="margin-left: 400px">
+    <p th:text="${age > 10}">年龄大于10</p>
+    <p th:text="${20 + 30}">运算结果</p>
+    <p th:if="${user == null}">user 是 null</p>
+    <p th:if="${user eq null}">user是空</p>
+    <p th:if="${user ne null}">不为空</p>
+
+    <p th:if="${isLogin ? true : false}">用户已经登陆</p>
+
+    <p th:text="${isLogin ? ( age > 10 ? '用户大于10岁' : '用户小孩子') : '用户需要登陆'}"></p>
+</div>
+</body>
+</html>

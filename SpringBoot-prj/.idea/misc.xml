@@ -3,6 +3,7 @@
   <component name="ExternalStorageConfigurationManager" enabled="true" />
   <component name="FrameworkDetectionExcludesConfiguration">
     <file type="web" url="file://$PROJECT_DIR$/_024-springboot-war" />
+    <file type="web" url="file://$PROJECT_DIR$/demo-api" />
   </component>
   <component name="MavenProjectsManager">
     <option name="originalFiles">
@@ -34,6 +35,11 @@
         <option value="$PROJECT_DIR$/_024-consumer/pom.xml" />
         <option value="$PROJECT_DIR$/_024-springboot-war/pom.xml" />
         <option value="$PROJECT_DIR$/_025-springboot-Jar/pom.xml" />
+        <option value="$PROJECT_DIR$/_26-thymeleaf-first/pom.xml" />
+        <option value="$PROJECT_DIR$/_027-thymeleaf-course/pom.xml" />
+        <option value="$PROJECT_DIR$/demo-api/pom.xml" />
+        <option value="$PROJECT_DIR$/demo-studentservice/pom.xml" />
+        <option value="$PROJECT_DIR$/demo-consumer/pom.xml" />
       </list>
     </option>
   </component>

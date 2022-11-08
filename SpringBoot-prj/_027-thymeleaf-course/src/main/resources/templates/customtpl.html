@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>使用模版</title>
+</head>
+<body>
+    <div style="margin-left: 300px">
+        <h3>使用其他目录中的模版文件</h3>
+        <div th:insert="common/left :: html"></div>
+        <br>
+        <br>
+
+        <div th:insert="head :: menu">
+        </div>
+
+        <h3>插入模版 th:insert</h3>
+        <div th:insert="~{head :: top}">
+            自第一种方式使用模版
+        </div>
+
+        <br>
+        <h3>插入模版 第二方式</h3>
+        <div th:insert="head :: top">
+        </div>
+
+        <br>
+        <hr>
+        <h3>包含模版，第一种语法</h3>
+        <div th:include="~{head :: top}"></div>
+
+        <br>
+        <hr>
+        <h3>包含模版，第二种语法</h3>
+        <div th:include="head :: top"></div>
+
+        <br>
+        <hr>
+        <h3>使用整个文件作为复用的内容（整个文件作为模版使用）</h3>
+        <div th:include="foot :: html"></div>
+        <div th:include="foot"></div>
+        <div th:insert="foot"></div>
+    </div>
+</body>
+</html>

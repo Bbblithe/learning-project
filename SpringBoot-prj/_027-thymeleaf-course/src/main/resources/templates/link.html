@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>链接表达式</title>
+</head>
+<body>
+<h3>链接绝对路径</h3>
+<a th:href="@{http://www.baidu.com}">链接到百度</a>
+<h3>链接的是相对地址</h3>
+<a th:href="@{/tpl/queryAccount}">相对地址：没有参数</a>
+<h3>链接的相对地址，使用字符串链接传递参数</h3>
+<a th:href="@{'/tpl/queryAccount?id='+${userId} }">获取model中数据</a>
+<h3>推荐使用的传参方式</h3>
+<a th:href="@{/tpl/queryAccount(id=${userId})}">传参数</a>
+<h3>传递多个参数</h3>
+<a th:href="@{/tpl/queryUser(name='lisi',age=20)}">传多个参数</a>
+</body>
+</html>

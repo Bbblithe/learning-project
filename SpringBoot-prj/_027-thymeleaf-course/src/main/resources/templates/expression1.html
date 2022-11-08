@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>标准变量表达式</title>
+</head>
+<body>
+  <h3>标准变量表达式 ${key}</h3>
+    <div>
+        <p th:text="${site}"></p>
+        <br>
+        <p>获取SysUser对象的 属性值</p>
+        <p th:text="${myUser.getId()}">id</p>
+        <p th:text="${myUser.getName()}">Name</p>
+        <p th:text="${myUser.getSex()}">sex</p>
+        <p th:text="${myUser.getAge()}"> age </p>
+    </div>
+</body>
+</html>

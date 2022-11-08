@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>switch</title>
+</head>
+<body>
+<div style="margin-left: 50%">
+    <h3>switch使用</h3>
+    <div th:switch="${sex}">
+        <p th:case="man">男</p>
+        <p th:case="women">女</p>
+        <p th:case="*"> 未知</p>
+    </div>
+</div>
+</body>
+</html>

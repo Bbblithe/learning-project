@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>each循环</title>
+</head>
+<body>
+<div style="margin-left: 400px">
+    <!-- <div th:each="user,userIter:${userList}"> -->
+    <!--     <p th:text="${user.id}"></p> -->
+    <!--     <p th:text="${user.name}"></p> -->
+    <!--     <p th:text="${user.sex}"></p> -->
+    <!--     <p th:text="${user.age}"></p> -->
+    <!-- </div> -->
+    <table border="1" cellpadding="0" cellspacing="0">
+        <thead>
+        <tr>
+            <th>编号</th>
+            <th>id</th>
+            <th>name</th>
+            <th>sex</th>
+            <th>age</th>
+            <th>姓名</th>
+            <th>是否是第一行</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="user,userIter:${userList}">
+            <td th:text="${userIter.count} + '/' + ${userIter.size}"></td>
+            <td th:text="${user.id}"></td>
+            <td th:text="${user.name}"></td>
+            <td th:text="${user.sex}"></td>
+            <td th:text="${user.age}"></td>
+            <td th:text="${userIter.current.name}"></td>
+            <td th:text="${userIter.first}"></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

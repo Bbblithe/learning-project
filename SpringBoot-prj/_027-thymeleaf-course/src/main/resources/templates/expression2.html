@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>选择变量表达式</title>
+</head>
+<body>
+  <h3>标准变量表达式 *{key}</h3>
+    <div>
+        <br>
+        <p>使用*{} 获取SysUser的属性值</p>
+        <div th:object="${myUser}">
+            <p th:text="*{id}"></p>
+            <p th:text="*{name}"></p>
+            <p th:text="*{sex}"></p>
+            <p th:text="*{age}"></p>
+        </div>
+    </div>
+</body>
+</html>

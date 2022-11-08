@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div style="margin-left: 400px">
+    <h3> if 使用</h3>
+    <p th:if="${sex == 'men'}"> 性别是男</p>
+    <p th:if="${isLogin}">登陆系统</p>
+    <p th:if="${age > 20}" >年龄是大鱼20</p>
+    <!-- "空字符串是true" -->
+    <p th:if="${name}">name是""</p>
+    <!-- null是假false -->
+    <p th:if="${isOld}">isOld 不是 null</p>
+</div>
+
+<br>
+<div style="margin:auto 0">
+    <h3>unless使用</h3>
+    <p th:unless="${sex == 'men'}">性别是女</p>
+    <p th:unless="${isLogin}">未登陆系统</p>
+    <p th:unless="${age > 20}">年龄小雨20</p>
+    <p th:unless="${isOld}">isOld 是 null</p>
+</div>
+</body>
+</html>

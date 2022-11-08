@@ -12,6 +12,9 @@
         <module name="_013-springboot-filter" />
         <module name="_008-springboot-jsp" />
         <module name="_021-interface-api" />
+        <module name="demo-consumer" />
+        <module name="demo-api" />
+        <module name="_26-thymeleaf-first" />
         <module name="_012-springboot-servlet" />
         <module name="_016-springboot-mapper" />
         <module name="_017-springboot-mapperscan" />
@@ -27,8 +30,10 @@
         <module name="_009-springboot-container" />
         <module name="_006-springboot-multi-enviroment" />
         <module name="_011-springboot-interceptor" />
+        <module name="demo-studentservice" />
         <module name="_014-springboot-charactor-filter" />
         <module name="_003-springboot-second" />
+        <module name="_027-thymeleaf-course" />
         <module name="_020-springboot-redis" />
         <module name="_001-spring-pre" />
       </profile>
@@ -63,6 +68,10 @@
       <module name="_024-consumer" options="-parameters" />
       <module name="_024-springboot-war" options="-parameters" />
       <module name="_025-springboot-Jar" options="-parameters" />
+      <module name="_027-thymeleaf-course" options="-parameters" />
+      <module name="_26-thymeleaf-first" options="-parameters" />
+      <module name="demo-consumer" options="-parameters" />
+      <module name="demo-studentservice" options="-parameters" />
     </option>
   </component>
 </project>

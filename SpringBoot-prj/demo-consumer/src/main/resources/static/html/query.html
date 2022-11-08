@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="../js/jquery-1.11.1-min.js"></script>
+</head>
+<body>
+<input type="text" id="stuId" value=""><br>
+<button id="btn">查询</button>
+</body>
+
+<script type="text/javascript">
+    $(function () {
+        $("#btn").on("click", function () {
+            // alert("hahah")
+            var stuid = $("#stuId").val();
+            $.ajax({
+                url:"/demo/student/query",
+                type:"get",
+                data:"id="+stuid,
+                dataType:"text",
+                success:function (data){
+                    alert(data)
+                }
+            })
+        })
+    })
+</script>
+</html>

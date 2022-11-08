@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>字符串连接</title>
+</head>
+<body>
+<div style="margin-left: 400px">
+    <h3>字符串的连接方式1：使用单引号括起来的字符串</h3>
+    <p th:text="'我是' + ${name} + '，我所在的城市是' + ${city}">
+    <hr>
+    <br>
+    <h3>字符串的连接方式2：双|| </h3>
+    <p th:text="|我是${name},所在城市${city},其他人${user.getName()}|"></p>
+
+</div>
+</body>
+</html>

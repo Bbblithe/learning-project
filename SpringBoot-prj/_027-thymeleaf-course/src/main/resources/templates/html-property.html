@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>html-property</title>
+    <script th:src="@{/js/jquery-1.11.1-min.js}"></script>
+</head>
+<body>
+  <div style="margin-left: 400px">
+      <h3>属性的使用是在html元素的属性上加入th</h3>
+      <form th:action="@{/loginServlet}" th:method="${methodAttr}">
+          <input th:type="text" th:name="${paramName}" th:value="${userValue}"> <br>
+          <input type="button" id="btn" th:onclick="btnClick()" value="按钮">
+      </form>
+
+      <p th:style="${textcolor}">这是模版的例子</p>
+  </div>
+</body>
+<script type="text/javascript">
+    function btnClick(){
+        alert("按钮单击了");
+    }
+
+    $(function(){
+        $("#btn").click(function(){
+            alert("click == jquery")
+        })
+    })
+</script>
+</html>

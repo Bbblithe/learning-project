@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>内置工具类对象</title>
+</head>
+<body>
+<div style="margin-left: 300px">
+    <h3>日期类对象：#data</h3>
+    <p th:text="${#dates.format(mydate)}"></p>
+    <p th:text="${#dates.format(mydate,'yyyy-MM-dd')}"></p>
+    <p th:text="${#dates.format(mydate,'yyyy-MM-dd HH:mm:ss')}"></p>
+    <p th:text="${#dates.year(mydate)}"></p>
+    <p th:text="${#dates.month(mydate)}"></p>
+    <p th:text="${#dates.monthName(mydate)}"></p>
+    <p th:text="${#dates.createNow()}"></p>
+
+    <h3>内置工具类#numbers,操作数字</h3>
+    <p th:text="${#numbers.formatCurrency(mynum)}"></p>
+    <p th:text="${#numbers.formatDecimal(mynum,5,2)}"></p>
+
+    <h3>内置工具类#strings,操作字符串</h3>
+    <p th:text="${#strings.toUpperCase(mystr)}"></p>
+    <p th:text="${#strings.indexOf(mystr,'power')}"></p>
+    <p th:text="${#strings.substring(mystr,0,5)}"></p>
+    <p th:text="${#strings.substring(mystr,0)}"></p>
+    <p th:text="${#strings.concat(mystr,' yyds')}"></p>
+
+    <h3>内置工具类#lists,操作list集合</h3>
+    <p th:text="${#lists.size(mylist)}"></p>
+    <p th:if="${#lists.contains(mylist,'a')}">有成员a</p>
+    <p th:unless="${#lists.isEmpty(mylist)}">list不为空</p>
+
+    <h3>处理null(加'?')</h3>
+    <p th:text="${zoo.getDog().getName()}"></p>
+    <p th:text="${zoo?.getCat()?.getName()}"></p>
+</div>
+</body>
+</html>

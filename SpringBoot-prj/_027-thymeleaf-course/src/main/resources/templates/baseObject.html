@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>模版内置对象，方便使用request，session</title>
+</head>
+<body>
+    <div style="margin: 350px;">
+        <h3>内置对象#request,#session,session的使用</h3>
+        <p>获取作用域中的数据</p>
+        <p th:text="${#request.getAttribute('myname')}"></p>
+        <p th:text="${#session.getAttribute('sessionData')}"></p>
+        <p th:text="${#session.getAttribute('loginName')}"></p>
+        <p th:text="${session.loginName}"></p>
+        <p th:text="${session.sessionData}"></p>
+
+        <br>
+        <br>
+        <h3>使用内置对象的方法</h3>
+        requestURL = <span th:text="${#request.getRequestURL()}"></span><br>
+        RequestURI=<span th:text="${#request.getRequestURI()}"></span><br>
+        QueryString=<span th:text="${#request.getQueryString()}"></span><br>
+        ContextPath=<span th:text="${#request.getContextPath()}"></span><br>
+        ServerName=<span th:text="${#request.getServerName()}"></span><br>
+        ServerPort=<span th:text="${#request.getServerPort()}"></span><br>
+
+        sessionId = <span th:text="${#session.getId()}"></span> <br>
+        <span th:text="${param.name}"></span><br>
+        <span th:text="${param.size()}"></span><br>
+    </div>
+</body>
+</html>

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>each循环</title>
+</head>
+<body>
+<div style="margin-left: 400px">
+    <div th:each="user:${userArray}">
+        <p th:text="${user.id}"></p>
+        <p th:text="${user.name}"></p>
+        <p th:text="${user.sex}"></p>
+        <p th:text="${user.age}"></p>
+    </div>
+</div>
+</body>
+</html>

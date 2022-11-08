@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>each循环</title>
+</head>
+<body>
+<div style="margin-left: 400px">
+    <div th:each="mymap,userStat:${map}">
+        <p th:text="${mymap.key}"></p>
+        <p th:text="${mymap.value}"></p>
+        <p th:text="${mymap.value.id}"></p>
+        <p th:text="${mymap.value.name}"></p>
+        <p th:text="${mymap.value.sex}"></p>
+        <p th:text="${mymap.value.age}"></p>
+        <p th:text="${userStat.count}"></p>
+        <hr>
+    </div>
+</div>
+</body>
+</html>
